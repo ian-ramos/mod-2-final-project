@@ -15,9 +15,10 @@ class EntertainersController < ApplicationController
   def create
     @entertainer = Entertainer.new(entertainer_params)
     if @entertainer.save
+      session[:entertainer_id] = @entertainer.id
       redirect_to entertainer_path(@entertainer)
     else
-      render :new
+      render :'sessions/entertainer_signup'
     end
   end
 

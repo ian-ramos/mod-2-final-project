@@ -3,6 +3,20 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def login
+    render :login
+  end
+
+  def host_signup
+    @host = Host.new
+    render :host_signup
+  end
+
+  def entertainer_signup
+    @entertainer = Entertainer.new
+    render :entertainer_signup
+  end
+
   def create
     if params[:user_type] == "Host"
       if Host.find_by(username: params[:username])
@@ -10,7 +24,7 @@ class SessionsController < ApplicationController
         session[:host_id] = @host.id
         redirect_to host_path(@host)
       else
-        render :new
+        redirect_to login_path
       end
     elsif params[:user_type] == "Entertainer"
         if Entertainer.find_by(username: params[:username])
@@ -18,7 +32,7 @@ class SessionsController < ApplicationController
           session[:entertainer_id] = @entertainer.id
           redirect_to entertainer_path(@entertainer)
       else
-        render :new
+        redirect_to login_path
       end
     end
   end

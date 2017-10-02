@@ -15,9 +15,10 @@ class HostsController < ApplicationController
   def create
     @host = Host.new(host_params)
     if @host.save
+      session[:host_id] = @host.id
       redirect_to host_path(@host)
     else
-      render :new
+      render :'sessions/host_signup'
     end
   end
 
