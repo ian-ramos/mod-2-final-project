@@ -1,9 +1,1 @@
-<%= form_for @entertainer do |f| %>
-  <%= f.label 'Username: ' %>
-  <%= f.text_field :username %><br>
-  <%= f.label 'Job Type: ' %>
-  <%= f.collection_select :job_type, Entertainer.job_types, :to_s, :to_s %><br>
-  <%= f.label 'Image: ' %>
-  <%= f.text_field :image %><br>
-  <%= f.submit %>
-<% end %>
+<%= render 'entertainer' %>
