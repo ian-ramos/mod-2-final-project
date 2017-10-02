@@ -1,4 +1,11 @@
-<h1>Welcome, <%= @entertainer.username %></h1><br>
+
+<img src= <%= @entertainer.image %> alt="" height="400" width="400">
+<h1><%= @entertainer.username %></h1><br>
+<h3><%= @entertainer.job_type %></h3>
+
+
+
+
 <%= form_tag entertainer_path(@entertainer), method: :delete do %>
   <%= submit_tag 'Delete' %>
 <% end %>
