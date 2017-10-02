@@ -10,9 +10,10 @@ class Entertainer < ApplicationRecord
     @@job_types
   end
 
-  def events
-    @events = Entertainer.events_entertainers.event_ids
-    
+  def hosts
+    self.events.map do |event|
+      Host.find(event.host_id)
+    end
   end
 
 end
