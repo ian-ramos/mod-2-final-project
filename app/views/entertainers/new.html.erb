@@ -1,0 +1,4 @@
+<%= form_for @entertainer do |f| %>
+  <%= f.text_field :username %>
+  <%= f.collection_select :job_type, Entertainer.job_type, :job_type, :job_type %>
+<% end %>
