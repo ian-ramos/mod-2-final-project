@@ -12,11 +12,12 @@ class Host < ApplicationRecord
     self.events.map {|event| event.entertainers }.flatten
   end
 
-  def entertainer_usernames(usernames)
-    usernames.each do |username|
-      entertainer = Entertainer.find_by(name: username)
-      self.entertainers << entertainer
-    end
-  end
+  # def entertainer_usernames=(usernames)
+  #   usernames.each do |username|
+  #     entertainer = Entertainer.find_by(username: username)
+  #     self.entertainers << entertainer
+  #     byebug
+  #   end
+  # end
 
 end

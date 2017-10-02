@@ -24,9 +24,10 @@ class HostsController < ApplicationController
   end
 
   def update
-    @host = Host.find(param[:id])
-    @host.entertainers.clear
+    Host.find(params[:id]) ? @host = Host.find(params[:id]) : @host = Host.find(session[:host_id])
+    @host.events.find(params[:event_id]).entertainers.clear #clears the entertainers for this current event
     if @host.update(host_params)
+      entertainer_usernames(@host, params[:host][:entertainer_usernames], params[:event_id]) #calls private method that updates entertainers list
       redirect_to host_path(@host)
     else
       render :edit
@@ -42,7 +43,19 @@ class HostsController < ApplicationController
   private
 
   def host_params
+<<<<<<< HEAD
     params.require(:host).permit(:username, :password, :password_confirmation, entertainer_usernames: [])
+=======
+    params.require(:host).permit(:username)
+  end
+
+  def entertainer_usernames(host, usernames, event_id) #takes the entertainers from the event show page and updates entertainers list for that host's event
+    array = usernames.reject {|username| username == ""}
+    array.each do |username|
+      entertainer = Entertainer.find_by(username: username)
+      host.events.find(event_id).entertainers << entertainer
+    end
+>>>>>>> daae8f262b7bee4de16bcdb6e25b420c45a120b3
   end
 
 end
