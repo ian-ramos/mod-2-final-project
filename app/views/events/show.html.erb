@@ -2,3 +2,12 @@
 <h2><%= @event.name %></h2>
 
 <h4><%= @event.description %></h4>
+
+<!-- temporary until I can get checkboxes working --> 
+<p><h4><u>Event Entertainers:</u></h4></p>
+<%= form_for @host do |f| %>
+  <% @event.entertainers.each do |entertainer| %>
+    <input name="host[entertainer_usernames][]", value="<%= entertainer.username %>"><br>
+  <% end %>
+  <%= f.submit 'Update Entertainers' %>
+<% end %>

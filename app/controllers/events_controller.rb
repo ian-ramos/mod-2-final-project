@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @host = Host.find(session[:host_id])
     @event = Event.find(params[:id])
   end
 

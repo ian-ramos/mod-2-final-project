@@ -27,6 +27,7 @@ class HostsController < ApplicationController
 
   def update
     @host = Host.find(param[:id])
+    @host.entertainers.clear
     if @host.update(host_params)
       redirect_to host_path(@host)
     else
@@ -43,7 +44,7 @@ class HostsController < ApplicationController
   private
 
   def host_params
-    params.require(:host).permit(:username)
+    params.require(:host).permit(:username, entertainer_usernames: [])
   end
 
 end
