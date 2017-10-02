@@ -1,0 +1,6 @@
+<h1> All Hosts</h1>
+<ul>
+  <% @hosts.each do |h| %>
+    <li><%= link_to h.username, host_path(h) %></li>
+  <% end %>
+</ul>

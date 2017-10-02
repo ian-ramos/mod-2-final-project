@@ -1,0 +1,15 @@
+<h1><%= @host.username %>'s Profile</h1>
+
+<h2><%= @host.username %>'s Events</h2>
+<ul>
+  <% @hosts.events.each do |ev| %>
+    <li><%= link_to ev.name, event_path(ev) %></li>
+  <% end %>
+</ul>
+
+<h2>Entertainers used by <%= @host.username %></h2>
+<ul>
+  <% @hosts.entertainers do |ent| %>
+    <li><%= link_to ent.username, entertainer_path(ent) %></li>
+  <% end %>
+</ul>
