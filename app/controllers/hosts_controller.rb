@@ -8,9 +8,6 @@ class HostsController < ApplicationController
     @host = Host.find(params[:id])
   end
 
-  def new
-    @host = Host.new
-  end
 
   def create
     @host = Host.new(host_params)

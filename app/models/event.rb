@@ -10,12 +10,5 @@ class Event < ApplicationRecord
   has_many :events_entertainers
   has_many :entertainers, through: :events_entertainers
 
-  # def initialize(args)
-  #   @name = args[:name]
-  #   @description = args[:description]
-  #   @date = args[:date]
-  #   @host_id = nil
-  #   @entertainer_id = nil
-  # end
 
 end

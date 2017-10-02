@@ -1,7 +1,7 @@
 class EntertainersController < ApplicationController
+  before_action :require_login
 
   def index
-    byebug
     @entertainers = Entertainer.all
   end
 
@@ -9,9 +9,6 @@ class EntertainersController < ApplicationController
     @entertainer = Entertainer.find(params[:id])
   end
 
-  def new
-    @entertainer = Entertainer.new
-  end
 
   def create
     @entertainer = Entertainer.new(entertainer_params)
@@ -46,6 +43,13 @@ class EntertainersController < ApplicationController
 
   def entertainer_params
     params.require(:entertainer).permit(:username, :job_type, :image, :password, :password_confirmation)
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to login_path
+    end
   end
 
 end
