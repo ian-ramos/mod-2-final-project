@@ -7,8 +7,8 @@ class Event < ApplicationRecord
 
 
   belongs_to :host, optional: true
-  has_many :events_entertainers, optional: true
-  has_many :entertainers, through: :events_entertainers, optional: true
+  has_many :events_entertainers
+  has_many :entertainers, through: :events_entertainers
 
   # def initialize(args)
   #   @name = args[:name]
