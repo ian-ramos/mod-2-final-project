@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20171002182731) do
     t.string "username"
     t.string "job_type"
     t.string "image"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,7 +25,6 @@ ActiveRecord::Schema.define(version: 20171002182731) do
     t.string "name"
     t.text "description"
     t.integer "host_id"
-    t.integer "entertainer_id"
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171002182731) do
 
   create_table "hosts", force: :cascade do |t|
     t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

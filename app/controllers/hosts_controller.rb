@@ -45,7 +45,7 @@ class HostsController < ApplicationController
   private
 
   def host_params
-    params.require(:host).permit(:username, entertainer_usernames: [])
+    params.require(:host).permit(:username, :password, :password_confirmation, entertainer_usernames: [])
   end
 
 end

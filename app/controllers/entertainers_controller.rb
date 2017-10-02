@@ -1,6 +1,7 @@
 class EntertainersController < ApplicationController
 
   def index
+    byebug
     @entertainers = Entertainer.all
   end
 
@@ -44,7 +45,7 @@ class EntertainersController < ApplicationController
   private
 
   def entertainer_params
-    params.require(:entertainer).permit(:username, :job_type, :image)
+    params.require(:entertainer).permit(:username, :job_type, :image, :password, :password_confirmation)
   end
 
 end
