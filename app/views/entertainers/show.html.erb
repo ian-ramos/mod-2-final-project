@@ -1,1 +1,4 @@
-<h1>Welcome, <%= @entertaner.username %></h1><br>
+<h1>Welcome, <%= @entertainer.username %></h1><br>
+<%= form_tag entertainer_path(@entertainer), method: :delete do %>
+  <%= submit_tag 'Delete' %>
+<% end %>
