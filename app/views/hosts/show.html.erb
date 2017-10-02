@@ -9,7 +9,7 @@
 
 <h2>Entertainers used by <%= @host.username %></h2>
 <ul>
-  <% @host.entertainers do |ent| %>
-    <li><%= link_to ent.username, entertainer_path(ent) %></li>
+  <% @host.entertainers.each do |entertainer| %>
+    <li><%= link_to entertainer.username, entertainer_path(entertainer) %></li>
   <% end %>
 </ul>
