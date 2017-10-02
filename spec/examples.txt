@@ -1,3 +1,19 @@
 example_id                                                 | status | run_time        |
 ---------------------------------------------------------- | ------ | --------------- |
-./spec/controllers/entertainers_controllers_spec.rb[1:1:1] | passed | 0.05147 seconds |
+./spec/controllers/entertainers_controllers_spec.rb[1:1:1] | passed | 0.01129 seconds |
+./spec/controllers/entertainers_controllers_spec.rb[1:2:1] | passed | 0.05557 seconds |
+./spec/controllers/events_controller_spec.rb[1:1:1]        | passed | 0.01099 seconds |
+./spec/controllers/events_controller_spec.rb[1:2:1]        | passed | 0.0352 seconds  |
+./spec/controllers/hosts_controller_spec.rb[1:1:1]         | passed | 0.00298 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:1:2]         | passed | 0.009 seconds   |
+./spec/controllers/hosts_controller_spec.rb[1:1:3]         | passed | 0.0085 seconds  |
+./spec/controllers/hosts_controller_spec.rb[1:2:1]         | passed | 0.00359 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:2:2]         | passed | 0.00743 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:2:3]         | passed | 0.01092 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:3:1]         | passed | 0.01374 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:3:2]         | passed | 0.01004 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:3:3]         | passed | 0.01166 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:4:1]         | passed | 0.04077 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:4:2]         | passed | 0.00828 seconds |
+./spec/controllers/hosts_controller_spec.rb[1:4:3]         | passed | 0.00767 seconds |
+./spec/controllers/sessions_controller_spec.rb[1:1:1]      | passed | 0.01011 seconds |
