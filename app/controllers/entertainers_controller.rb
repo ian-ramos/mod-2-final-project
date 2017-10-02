@@ -43,7 +43,7 @@ class EntertainersController < ApplicationController
   private
 
   def entertainer_params
-    params.require(:entertainer).permit(:username, :job_type)
+    params.require(:entertainer).permit(:username, :job_type, :image)
   end
 
 end
