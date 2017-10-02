@@ -1,0 +1,5 @@
+<h1>All Entertainers</h1>
+
+<% @entertainers.each do |entertainer| %>
+  <%= link_to entertainer.username, entertainer_path(entertainer) %>
+<% end %>

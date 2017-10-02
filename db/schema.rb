@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20171002161711) do
   create_table "entertainers", force: :cascade do |t|
     t.string "username"
     t.string "job_type"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
