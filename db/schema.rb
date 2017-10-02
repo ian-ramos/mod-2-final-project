@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20171002182731) do
     t.string "name"
     t.text "description"
     t.integer "host_id"
+    t.integer "entertainer_id"
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

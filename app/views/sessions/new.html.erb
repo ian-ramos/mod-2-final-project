@@ -2,6 +2,10 @@
 
 
 <%= form_tag login_path do %>
-  Username: <%= text_field_tag :username %>
+  Username: <%= text_field_tag :username %><br>
+  <%= radio_button_tag(:user_type, "Host") %>
+  <%= label_tag(:host, "Host") %>
+  <%= radio_button_tag(:user_type, "Entertainer") %>
+  <%= label_tag(:entertainer, "Entertainer") %><br>
   <%= submit_tag 'Login'%>
 <% end %>
