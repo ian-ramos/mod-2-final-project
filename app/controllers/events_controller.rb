@@ -2,10 +2,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @entertainer = Entertainer.find_by(id: session[:entertainer_id])
   end
 
   def show
-    @host = Host.find(session[:host_id])
+    @host = Host.find_by(id: session[:host_id]) #find_by instead of find so that it equals nil if it can't find it (rather than breaking)
     @event = Event.find(params[:id])
   end
 
@@ -42,7 +43,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :date, :host_id)
+    params.require(:event).permit(:name, :description, :date, :host_id, events_id: [])
   end
 
 end
