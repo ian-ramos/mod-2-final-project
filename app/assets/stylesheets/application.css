@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ div.content {
+ margin-left: auto;
+ margin-right: auto;
+ padding:20px;
+ position:relative;
+ background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+ background: rgba(204, 204, 204, 0.5);
+ width: 20%;
+ text-align: center;
+}
