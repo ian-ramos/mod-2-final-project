@@ -1,0 +1,6 @@
+<nav>
+  <div style="float: left;">
+
+   <% if current_user.class == Host %><%= link_to "Post New Event", new_event_path %> |<% end %> <%= link_to "Events", events_path %> | <%= link_to "Entertainers", entertainers_path %></div>
+   <div style="float: right;">You are currently logged in as <%= current_user.class %>, <%= link_to current_user.username, current_user %></span> | <%= link_to "Logout", logout_path %></div>
+</nav>
