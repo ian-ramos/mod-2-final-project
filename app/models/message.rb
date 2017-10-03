@@ -15,6 +15,15 @@ class Message < ApplicationRecord
     @@receiver
   end
 
+  def self.sender_receiver_delete(message) #goes through the sender & receiver hashes to find the message and delete it
+    @@sender.each do |username, array|
+      array.delete_if {|m| m == message}
+    end
+    @@receiver.each do |username, array|
+      array.delete_if {|m| m == message}
+    end
+  end
+
   def entertainer_username=(username)
     entertainer = Entertainer.find_by(username: username)
     self.entertainer = entertainer

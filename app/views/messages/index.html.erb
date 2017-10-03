@@ -1,34 +1,50 @@
-<h1>Your Inbox:</h1>
+<div class = "container-fluid>">
 
-<table>
-<% if @host %>
-    <thead><tr>
-      <th>Title</th>
-      <th>Message</th>
-      <th>Delete</th>
-    </tr></thead>
-    <tbody>
-    <% @messages.select {|message| message.host_id == @host.id}.each do |message| %>
-      <tr>
-        <th><%= link_to message.title, message_path(message) %></th>
-        <th><%= message.content[0..140] %></th>
-        <th><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></th>
-      </tr>
+  <div>
+    <h1>Your Inbox:</h1>
+    <table>
+    <% if @host %>
+        <thead><tr>
+          <th>Title</th>
+          <th>Message</th>
+          <th>From</th>
+          <th>Delete</th>
+        </tr></thead>
+        <tbody>
+          <% if Message.sender[@host.username] %>
+            <% Message.sender[@host.username].each do |message| %>
+              <tr>
+                <th><%= link_to message.title, message_path(message) %></th>
+                <th><%= message.content[0..140] %></th>
+                <th><%= Entertainer.find(message.entertainer_id).username %></th>
+                <th><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></th>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      <% else %>
+        <thead><tr>
+          <th>Title</th>
+          <th>Message</th>
+          <th>From</th>
+          <th>Delete</th>
+        </tr></thead>
+        <tbody>
+          <% if Message.sender[@entertainer.username] %>
+            <% Message.sender[@entertainer.username].each do |message| %>
+              <tr>
+                <th><%= link_to message.title, message_path(message) %>
+                <th><%= message.content[0..140] %></th>
+                <th><%= Host.find(message.host_id).username %></th>
+                <th><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></th>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
     <% end %>
-    </tbody>
-  <% else %>
-    <thead><tr>
-      <th>Title</th>
-      <th>Message</th>
-    </tr></thead>
-    <tbody>
-    <% @messages.select {|message| message.entertainer_id == @entertainer.id}.each do |message| %>
-      <tr>
-        <th><%= link_to message.title, message_path(message) %>
-        <th><%= message.content[0..140] %></th>
-        <th><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></th>
-      </tr>
-    <% end %>
-    </tbody>
-<% end %>
-</table>
+    </table>
+  </div>
+
+
+
+</div>

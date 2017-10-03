@@ -20,10 +20,10 @@ class MessagesController < ApplicationController
     if @message.save
       if @host
         @message.sender(@host.username)
-        @message.receiver(Entertainer.find_by(params[:message][:entertainer_id]).username)
+        @message.receiver(params[:message][:entertainer_username])
       else
         @message.sender(@entertainer.username)
-        @message.receiver(Host.find_by(params[:message][:host_id]).username)
+        @message.receiver(params[:message][:host_username])
       end
       redirect_to messages_path
     else
@@ -33,6 +33,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message = Message.find(params[:id])
+    Message.sender_receiver_delete(@message) #need to delete from sender & receiver hash as well
     @message.destroy
     redirect_to messages_path
   end
