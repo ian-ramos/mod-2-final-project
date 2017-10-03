@@ -1,11 +1,16 @@
-<h1>Welcome</h1>
+<div>
 
-
-<%= form_tag login_path do %>
-  Username: <%= text_field_tag :username %><br>
-  <%= radio_button_tag(:user_type, "Host") %>
-  <%= label_tag(:host, "Host") %>
-  <%= radio_button_tag(:user_type, "Entertainer") %>
-  <%= label_tag(:entertainer, "Entertainer") %><br>
-  <%= submit_tag 'Login'%>
-<% end %>
+  <div style="width: 35%; margin: 0 auto;">
+    <h1>Welcome</h1>
+    <%= form_tag login_path do %>
+      <p>Username: <%= text_field_tag :username %></p>
+      <p>Password: <%= password_field_tag :password %></p>
+      <p>Password Confirmation: <%= password_field_tag :password_confirmation %></p>
+      <%= radio_button_tag(:user_type, "Host", true) %>
+      <%= label_tag(:host, "Host") %>
+      <%= radio_button_tag(:user_type, "Entertainer") %>
+      <%= label_tag(:entertainer, "Entertainer") %><br>
+      <p><%= submit_tag 'Login'%></p>
+    <% end %>
+  </div>
+</div>

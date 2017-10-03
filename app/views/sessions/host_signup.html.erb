@@ -1,7 +1,21 @@
-<h1>Create a Host Account</h1>
-<%= form_for(@host) do |f| %>
-  Username: <%= f.text_field :username %><br>
-  Password: <%= f.password_field :password %><br>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br>
-  <%= f.submit %>
-<% end %>
+<div>
+  <% if @host.errors.any? %>
+    <div style="width: 35%; margin: 0 auto;">
+      <ul>
+      <% @host.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="width: 35%; margin: 0 auto;">
+    <h1>Create a Host Account</h1>
+    <%= form_for(@host) do |f| %>
+      <p>Username: <%= f.text_field :username %></p>
+      <p>Password: <%= f.password_field :password %></p>
+      <p>Password Confirmation: <%= f.password_field :password_confirmation %></p>
+      <p><%= f.submit %></p>
+    <% end %>
+  </div>
+</div>

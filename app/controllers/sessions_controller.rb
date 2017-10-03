@@ -21,16 +21,18 @@ class SessionsController < ApplicationController
     if params[:user_type] == "Host"
       if Host.find_by(username: params[:username])
         @host = Host.find_by(username: params[:username])
+        return head(:forbidden) unless @host.authenticate(params[:password])
         session[:host_id] = @host.id
         redirect_to host_path(@host)
       else
         redirect_to login_path
       end
     elsif params[:user_type] == "Entertainer"
-        if Entertainer.find_by(username: params[:username])
-          @entertainer = Entertainer.find_by(username: params[:username])
-          session[:entertainer_id] = @entertainer.id
-          redirect_to entertainer_path(@entertainer)
+      if Entertainer.find_by(username: params[:username])
+        @entertainer = Entertainer.find_by(username: params[:username])
+        return head(:forbidden) unless @entertainer.authenticate(params[:password])
+        session[:entertainer_id] = @entertainer.id
+        redirect_to entertainer_path(@entertainer)
       else
         redirect_to login_path
       end
