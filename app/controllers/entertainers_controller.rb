@@ -1,6 +1,8 @@
 class EntertainersController < ApplicationController
   before_action :require_login
 
+  layout "directory"
+
   def index
     @entertainers = Entertainer.all
   end
