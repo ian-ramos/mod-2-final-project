@@ -1,6 +1,6 @@
 <div class = "container-fluid>">
 
-  <div>
+  <div style="float:left; width: 50%; margin: 0 auto;">
     <h1>Your Inbox:</h1>
     <table>
     <% if @host %>
@@ -8,6 +8,51 @@
           <th>Title</th>
           <th>Message</th>
           <th>From</th>
+          <th>Delete</th>
+        </tr></thead>
+        <tbody>
+          <% if Message.receiver[@host.username] %>
+            <% Message.receiver[@host.username].each do |message| %>
+              <tr>
+                <th><%= link_to message.title, message_path(message) %></th>
+                <th><%= message.content[0..140] %></th>
+                <th><%= Entertainer.find(message.entertainer_id).username %></th>
+                <th><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></th>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      <% else %>
+        <thead><tr>
+          <th>Title</th>
+          <th>Message</th>
+          <th>From</th>
+          <th>Delete</th>
+        </tr></thead>
+        <tbody>
+          <% if Message.receiver[@entertainer.username] %>
+            <% Message.receiver[@entertainer.username].each do |message| %>
+              <tr>
+                <th><%= link_to message.title, message_path(message) %>
+                <th><%= message.content[0..140] %></th>
+                <th><%= Host.find(message.host_id).username %></th>
+                <th><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></th>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+    <% end %>
+    </table>
+  </div>
+
+  <div style="float:right; width: 50%; margin: 0 auto;">
+    <h1>Your Outbox:</h1>
+    <table>
+    <% if @host %>
+        <thead><tr>
+          <th>Title</th>
+          <th>Message</th>
+          <th>To</th>
           <th>Delete</th>
         </tr></thead>
         <tbody>
@@ -26,7 +71,7 @@
         <thead><tr>
           <th>Title</th>
           <th>Message</th>
-          <th>From</th>
+          <th>To</th>
           <th>Delete</th>
         </tr></thead>
         <tbody>
@@ -44,7 +89,5 @@
     <% end %>
     </table>
   </div>
-
-
 
 </div>
