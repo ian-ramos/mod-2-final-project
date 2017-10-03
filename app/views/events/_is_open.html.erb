@@ -1,6 +1,6 @@
 <p>Your event is currently open and accepting entertainer applications.</p>
 <h2>Event Entertainers</h2>
-<% if @host %>
+<% if @host.try(:id) == @event.host_id && @host %>
   <% if @event.entertainers.any? %>
 
     <%= form_for @host, url: {action: "update_entertainers", controller: "hosts"} do |f| %>
@@ -17,7 +17,7 @@
 <% else %>
   <ul>
     <% @event.entertainers.each do |entertainer| %>
-      <li>entertainer.username</li>
+      <li><%= link_to entertainer.username, entertainer_path(entertainer  ) %></li>
     <% end %>
   </ul>
 <% end %>
