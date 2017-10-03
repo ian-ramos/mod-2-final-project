@@ -35,7 +35,7 @@ class EntertainersController < ApplicationController
     end
   end
 
-  def update_events
+  def update_events #update coming from events index page
     @entertainer = Entertainer.find(session[:entertainer_id])
     if params.include?(:entertainer)
       @entertainer.events.clear

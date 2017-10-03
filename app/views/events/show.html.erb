@@ -3,12 +3,14 @@
 
 <h4><%= @event.description %></h4>
 
-<!-- temporary until I can get checkboxes working -->
 <p><h4><u>Event Entertainers:</u></h4></p>
-<%= form_for @host do |f| %>
-  <% @event.entertainers.each do |entertainer| %>
-    <input name="host[entertainer_usernames][]", value="<%= entertainer.username %>"><br>
+<% if @host %>
+  <%= form_for @host, url: {action: "update_entertainers", controller: "hosts"} do |f| %>
+    <% @event.entertainers.each do |entertainer| %>
+      <%= f.check_box :events, {name: 'host[entertainer_ids][]', checked: (true if @event.entertainers.include?(entertainer))}, "#{entertainer.id}", false %>
+      <%= f.label :events, {value: "#{entertainer.username}"} %><br>
+    <% end %>
+    <input type="hidden", name="event_id", value="<%= @event.id %>">
+    <%= f.submit 'Choose These Entertainers' %>
   <% end %>
-  <input type="hidden", name="event_id", value="<%= @event.id %>">
-  <%= f.submit 'Update Entertainers' %>
 <% end %>
