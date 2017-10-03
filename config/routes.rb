@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post '/entertainer_signup', to: 'entertainers#create'
   post '/post', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
+  patch '/update_events', to: 'entertainers#update_events'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -27,9 +27,21 @@ class EntertainersController < ApplicationController
   def update
     @entertainer = Entertainer.find(params[:id])
     if @entertainer.update(entertainer_params)
-      redirect_to entertainers_path(@entertainer)
+      redirect_to entertainer_path(@entertainer)
     else
       render :edit
+    end
+  end
+
+  def update_events
+    @entertainer = Entertainer.find(session[:entertainer_id])
+    if params.include?(:entertainer)
+      @entertainer.events.clear
+      @entertainer.update(entertainer_params)
+      redirect_to entertainer_path(@entertainer)
+    else
+      @entertainer.events.clear
+      redirect_to entertainer_path(@entertainer)
     end
   end
 
@@ -42,7 +54,7 @@ class EntertainersController < ApplicationController
   private
 
   def entertainer_params
-    params.require(:entertainer).permit(:username, :job_type, :image, :password, :password_confirmation)
+    params.require(:entertainer).permit(:username, :job_type, :image, :password, :password_confirmation, event_ids: [])
   end
 
   def require_login

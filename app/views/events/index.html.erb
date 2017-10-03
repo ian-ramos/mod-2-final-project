@@ -4,9 +4,9 @@
   <%= link_to event.name, event_path(event) %>
 <% end %>
 
-<%= form_for @entertainer do |f| %>
+<%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
   <% @events.each do |event| %>
-    <%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}" %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back -->
+    <%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}", false %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back, then the value if unchecked -->
     <%= f.label :events, {value: "#{event.name}"} %><br>
   <% end %>
   <%= f.submit 'Choose These Events' %>
