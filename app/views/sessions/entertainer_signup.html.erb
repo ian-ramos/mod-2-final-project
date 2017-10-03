@@ -1,11 +1,19 @@
-<%= form_for @entertainer do |f| %>
-  <%= f.label 'Username: ' %>
-  <%= f.text_field :username %><br>
-  <%= f.label 'Job Type: ' %>
-  <%= f.collection_select :job_type, Entertainer.job_types, :to_s, :to_s %><br>
-  <%= f.label 'Image: ' %>
-  <%= f.text_field :image %><br>
-  Password: <%= f.password_field :password %><br>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br>
-  <%= f.submit %>
-<% end %>
+<div>
+  <div style="width: 25%; margin: 0 auto;">
+  <%= form_for @entertainer do |f| %>
+    <div><p><%= f.label 'Username: ' %></p>
+    <%= f.text_field :username %></div>
+    <div><p><%= f.label 'Job Type: ' %></p>
+    <%= f.collection_select :job_type, Entertainer.job_types, :to_s, :to_s %></div>
+    <div><p><%= f.label 'Image: ' %></p>
+    <%= f.text_field :image %></div>
+    <div><p><%= f.label 'Rate: ' %></p>
+    <%= f.text_field :rate %></div>
+    <div><p><%= f.label 'Description of Services: ' %></p>
+    <%= f.text_area :description %></div>
+    <div><p>Password: <%= f.password_field :password %></p>
+    <p>Password Confirmation: <%= f.password_field :password_confirmation %></p></div>
+    <%= f.submit %>
+  <% end %>
+  </div>
+</div>

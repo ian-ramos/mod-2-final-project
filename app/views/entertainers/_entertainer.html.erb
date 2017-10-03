@@ -5,5 +5,9 @@
   <%= f.collection_select :job_type, Entertainer.job_types, :to_s, :to_s %><br>
   <%= f.label 'Image: ' %>
   <%= f.text_field :image %><br>
+  <%= f.label 'Rate: ' %>
+  <%= f.text_field :rate %><br>
+  <%= f.label 'Description of Services: ' %>
+  <%= f.text_area :description %><br>
   <%= f.submit %>
 <% end %>
