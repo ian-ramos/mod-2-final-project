@@ -42,6 +42,7 @@ class HostsController < ApplicationController
     if params.include?(:host)
       Event.find(params[:event_id]).entertainers.clear
       entertainer_ids(params[:host][:entertainer_ids], params[:event_id])
+      Event.find(params[:event_id]).update(closed_status: true)
       redirect_to host_path(@host)
     else
       Event.find(params[:event_id]).entertainers.clear

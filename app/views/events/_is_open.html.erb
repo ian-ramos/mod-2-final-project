@@ -1,16 +1,5 @@
-<h1><%= @event.name %></h1>
-<h2>Event Date</h2>
-<p><%= @event.date.strftime("%B %d, %Y at %I:%M%p") %></p>
-
-<% if @event.closed_status == true %>
-  <p><h4><u>Event Entertainers:</u></h4></p>
-  <ul>
-    <% @event.entertainers.each do |entertainer| %>
-      <li>entertainer.username</li>
-    <% end %>
-  </ul>
-<% end %>
-
+<p>Your event is currently open and accepting entertainer applications.</p>
+<h2>Event Entertainers</h2>
 <% if @host %>
   <% if @event.entertainers.any? %>
 
@@ -25,4 +14,10 @@
   <% else %>
     <p>This event is still waiting for entertainers to apply. Check back soon!</p>
   <% end %>
+<% else %>
+  <ul>
+    <% @event.entertainers.each do |entertainer| %>
+      <li>entertainer.username</li>
+    <% end %>
+  </ul>
 <% end %>
