@@ -2,7 +2,7 @@ class HostsController < ApplicationController
   before_action :require_login, except: :create
 
 
-  layout "directory"
+  layout "directory", except: :create
 
 
   def index
