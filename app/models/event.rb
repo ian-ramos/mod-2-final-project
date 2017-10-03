@@ -3,8 +3,8 @@ class Event < ApplicationRecord
   validates :description, presence: true, length: {in: 10..500}, uniqueness: {scope: :host_id, message: "You already have an event that day!"}
   validates :date, presence: true
 
-  belongs_to :host, optional: true
-  has_many :events_entertainers
+  belongs_to :host
+  has_many :events_entertainers, dependent: :destroy #removes events_entertainers records when an event is destroyed
   has_many :entertainers, through: :events_entertainers
 
   def entertainer_cost(entertainer)

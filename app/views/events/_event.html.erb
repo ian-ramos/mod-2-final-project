@@ -11,5 +11,7 @@
   <%= f.text_area :description %><br><br><br>
   <%= f.label :date %><br>
   <%= f.date_field :date %><br><br><br>
+  <input id="hidden" type="hidden" name="event[host_id]" value="<%= session[:host_id] %>">
   <%= f.submit "Create Event" %>
+
 <% end %>
