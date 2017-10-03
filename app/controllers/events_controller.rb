@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
 
+  layout "directory"
+
+
   def index
     @events = Event.all
     @entertainer = Entertainer.find_by(id: session[:entertainer_id])

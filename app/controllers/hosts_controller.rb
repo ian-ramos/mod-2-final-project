@@ -1,5 +1,8 @@
 class HostsController < ApplicationController
 
+  layout "directory"
+
+
   def index
     @hosts = Host.all
   end
