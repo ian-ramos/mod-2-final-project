@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @entertainer = Entertainer.find_by(id: session[:entertainer_id])
+    @host = Host.find_by(id: session[:host_id])
   end
 
   def show
