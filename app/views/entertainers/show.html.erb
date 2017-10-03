@@ -6,6 +6,6 @@
 <h2>About <%= @entertainer.username %>:</h2>
 <p><%= @entertainer.description %></p>
 
-<%= form_tag entertainer_path(@entertainer), method: :delete do %>
-  <%= submit_tag 'Delete' %>
+<% if @entertainer.try(:id) == session[:entertainer_id] %>
+  <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @entertainer.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
 <% end %>
