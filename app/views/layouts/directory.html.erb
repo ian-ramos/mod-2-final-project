@@ -3,7 +3,7 @@
   <head>
     <title>Mod2FinalProject</title>
     <%= csrf_meta_tags %>
-    Hello
+    <%= link_to "Post New Event", new_event_path %> | <%= link_to "Events", events_path %> | <%= link_to "Entertainers", entertainers_path %><br><br>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
