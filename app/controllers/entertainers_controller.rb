@@ -1,5 +1,5 @@
 class EntertainersController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: :create
 
   def index
     @entertainers = Entertainer.all
@@ -54,7 +54,7 @@ class EntertainersController < ApplicationController
   private
 
   def entertainer_params
-    params.require(:entertainer).permit(:username, :job_type, :image, :password, :password_confirmation, event_ids: [])
+    params.require(:entertainer).permit(:username, :job_type, :image, :rate, :description, :password, :password_confirmation, event_ids: [])
   end
 
   def require_login
