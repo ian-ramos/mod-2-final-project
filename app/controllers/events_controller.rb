@@ -46,6 +46,20 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id]).destroy
   end
 
+  def search
+    @entertainer = Entertainer.find_by(id: session[:entertainer_id])
+    @host = Host.find_by(id: session[:host_id])
+    @events = Event.all.select {|e| e.closed_status == false}.select do |event|
+      event.name.downcase.include? (params[:q]).downcase
+    end
+    if @events.size > 0
+      render :search
+    else
+      flash[:alert] = "No events were found!"
+      redirect_to events_path
+    end
+  end
+
   private
 
   def event_params

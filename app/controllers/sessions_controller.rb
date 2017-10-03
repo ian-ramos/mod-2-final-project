@@ -4,17 +4,29 @@ class SessionsController < ApplicationController
   end
 
   def login
-    render :login
+    if session[:host_id] || session[:entertainer_id]
+      redirect_to events_path
+    else
+      render :login
+    end
   end
 
   def host_signup
-    @host = Host.new
-    render :host_signup
+    if session[:host_id] || session[:entertainer_id]
+      redirect_to events_path
+    else
+      @host = Host.new
+      render :host_signup
+    end
   end
 
   def entertainer_signup
-    @entertainer = Entertainer.new
-    render :entertainer_signup
+    if session[:host_id] || session[:entertainer_id]
+      redirect_to events_path
+    else
+      @entertainer = Entertainer.new
+      render :entertainer_signup
+    end
   end
 
   def create
