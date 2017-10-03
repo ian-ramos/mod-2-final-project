@@ -2,6 +2,8 @@ class Entertainer < ApplicationRecord
   has_secure_password
   has_many :events_entertainers
   has_many :events, through: :events_entertainers
+  has_many :messages
+  has_many :hosts, through: :messages
   validates :username, presence: true, uniqueness: true, length: {in: 1..30}
   validates :rate, presence: true, exclusion: {in: ["0"]}
   validates :description, presence: true
