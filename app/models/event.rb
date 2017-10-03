@@ -15,8 +15,20 @@ class Event < ApplicationRecord
     self.entertainers.map {|entertainer| self.entertainer_cost(entertainer)}.inject {|acc, cost| acc += cost}
   end
 
+  def tax
+    self.total_entertainer_cost * .07
+  end
+
   def cut_of_profit
     self.total_entertainer_cost * 0.1
+  end
+
+  def subtotal #without tax, plus our cut
+    self.total_entertainer_cost + self.cut_of_profit
+  end
+
+  def total #with tax
+    self.subtotal + self.tax
   end
 
 end
