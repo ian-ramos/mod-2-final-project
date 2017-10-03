@@ -13,3 +13,7 @@
     <li><%= link_to entertainer.username, entertainer_path(entertainer) %></li>
   <% end %>
 </ul>
+
+<% if @host.try(:id) == session[:host_id] %>
+  <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @host.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
+<% end %>
