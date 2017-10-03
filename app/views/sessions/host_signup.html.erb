@@ -1,6 +1,7 @@
 <div>
   <% if @host.errors.any? %>
     <div style="width: 35%; margin: 0 auto;">
+      <h2>There were some errors</h2>
       <ul>
       <% @host.errors.full_messages.each do |message| %>
         <li><%= message %></li>
