@@ -6,9 +6,6 @@
 <h2>About <%= @entertainer.username %>:</h2>
 <p><%= @entertainer.description %></p>
 
-
-
-
 <%= form_tag entertainer_path(@entertainer), method: :delete do %>
   <%= submit_tag 'Delete' %>
 <% end %>

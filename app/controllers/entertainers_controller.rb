@@ -59,11 +59,5 @@ class EntertainersController < ApplicationController
     params.require(:entertainer).permit(:username, :job_type, :image, :rate, :description, :password, :password_confirmation, event_ids: [])
   end
 
-  def require_login
-    unless logged_in?
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to login_path
-    end
-  end
 
 end

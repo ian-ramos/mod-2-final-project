@@ -1,4 +1,6 @@
 class HostsController < ApplicationController
+  before_action :require_login, except: :create
+
 
   layout "directory"
 
