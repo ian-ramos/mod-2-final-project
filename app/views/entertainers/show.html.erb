@@ -1,7 +1,10 @@
 
 <img src= <%= @entertainer.image %> alt="" height="400" width="400">
-<h1><%= @entertainer.username %></h1><br>
-<h3><%= @entertainer.job_type %></h3>
+<h1><%= @entertainer.username %></h1>
+<h2>Type: <%= @entertainer.job_type %></h2>
+<h2>Hourly Rate: $<%= @entertainer.rate %></h2>
+<h2>About <%= @entertainer.username %>:</h2>
+<p><%= @entertainer.description %></p>
 
 
 
