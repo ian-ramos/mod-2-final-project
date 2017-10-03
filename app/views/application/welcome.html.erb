@@ -4,7 +4,7 @@
 <html>
   <head>
     <style>
-    html {
+    body {
       background: url('party.jpg') no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -20,9 +20,9 @@
 
   <h1>Welcome</h1>
 
-  <%= link_to "Log in", login_path %><br><br>
+  <p><%= link_to "Log in", login_path %></p>
 
-  <%= link_to "Entertainer Signup", entertainer_signup_path %> || <%= link_to "Host Signup", host_signup_path %>
+  <p><%= link_to "Entertainer Signup", entertainer_signup_path %> || <%= link_to "Host Signup", host_signup_path %></p>
 
   </div>
   </div>

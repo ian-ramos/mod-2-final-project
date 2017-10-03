@@ -1,5 +1,9 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col">
+ -->
 
-<img src= <%= @entertainer.image %> alt="" height="400" width="400">
+<img src= <%= @entertainer.image %> alt="" class="img-fluid" width='600'>
 <h1><%= @entertainer.username %></h1>
 <h2>Type: <%= @entertainer.job_type %></h2>
 <h2>Hourly Rate: $<%= @entertainer.rate %></h2>
@@ -9,3 +13,6 @@
 <% if @entertainer.try(:id) == session[:entertainer_id] %>
   <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @entertainer.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
 <% end %>
+    <!-- </div>
+  </div>
+</div> -->
