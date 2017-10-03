@@ -1,0 +1,23 @@
+<p>Your event is currently open and accepting entertainer applications.</p>
+<h2>Event Entertainers</h2>
+<% if @host.try(:id) == @event.host_id && @host %>
+  <% if @event.entertainers.any? %>
+
+    <%= form_for @host, url: {action: "update_entertainers", controller: "hosts"} do |f| %>
+      <% @event.entertainers.each do |entertainer| %>
+        <%= f.check_box :events, {name: 'host[entertainer_ids][]', checked: (true if @event.entertainers.include?(entertainer))}, "#{entertainer.id}", false %>
+        <%= f.label :events, {value: "#{entertainer.username}"} %><br>
+      <% end %>
+      <input type="hidden", name="event_id", value="<%= @event.id %>">
+      <%= f.submit 'Choose These Entertainers' %>
+    <% end %>
+  <% else %>
+    <p>This event is still waiting for entertainers to apply. Check back soon!</p>
+  <% end %>
+<% else %>
+  <ul>
+    <% @event.entertainers.each do |entertainer| %>
+      <li><%= link_to entertainer.username, entertainer_path(entertainer  ) %></li>
+    <% end %>
+  </ul>
+<% end %>
