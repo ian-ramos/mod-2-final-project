@@ -16,11 +16,11 @@ class Event < ApplicationRecord
   end
 
   def tax
-    self.total_entertainer_cost * .07
+    (self.total_entertainer_cost * 0.07).round(2)
   end
 
   def cut_of_profit
-    self.total_entertainer_cost * 0.1
+    (self.total_entertainer_cost * 0.1).round(2)
   end
 
   def subtotal #without tax, plus our cut
@@ -29,6 +29,10 @@ class Event < ApplicationRecord
 
   def total #with tax
     self.subtotal + self.tax
+  end
+
+  def convert_to_two_decimals(number) #returns a string
+    sprintf('%.2f', number)
   end
 
 end
