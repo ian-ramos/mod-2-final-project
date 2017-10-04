@@ -14,19 +14,6 @@
   <div style="width: 35%; margin: 0 auto;">
     <h1>Create an Entertainer Account</h1>
    <%= form_for @entertainer do |f| %>
-  <!--  VVV Don't need any of this anymore since we're using bootstrap CSS code below VVV
-  <%= f.label 'Username: ' %>
-    <%= f.text_field :username %><br><br>
-    <%= f.label 'Job Type: ' %>
-    <%= f.collection_select :job_type, Entertainer.job_types, :to_s, :to_s %><br><br>
-    <%= f.label 'Image: ' %>
-    <%= f.text_field :image %><br><br>
-    <%= f.label 'Rate: ' %>
-    <%= f.text_field :rate %><br><br>
-    <%= f.label 'Description of Services: ' %>
-    <%= f.text_area :description %><br><br>
-    Password: <%= f.password_field :password %><br><br>
-    Password Confirmation: <%= f.password_field :password_confirmation %><br><br> -->
     <div class="input-group">
       <!-- <span class="input-group-addon" id="basic-addon1">@</span> -->
       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="entertainer[username]">
