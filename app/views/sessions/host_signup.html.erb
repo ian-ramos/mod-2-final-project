@@ -13,10 +13,19 @@
   <div style="width: 35%; margin: 0 auto;">
     <h1>Create a Host Account</h1>
     <%= form_for(@host) do |f| %>
-      <p>Username: <%= f.text_field :username %></p>
-      <p>Password: <%= f.password_field :password %></p>
-      <p>Password Confirmation: <%= f.password_field :password_confirmation %></p>
-      <p><%= f.submit %></p>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="host[username]">
+      </div>
+      <br>
+      <div class="input-group">
+        <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="host[password]">
+      </div>
+      <br>
+      <div class="input-group">
+        <input type="password" class="form-control" placeholder="Confirm password" aria-label="Username" aria-describedby="basic-addon1" name="host[password_confirmation]">
+      </div>
+      <br>
+      <p><%= f.submit class: 'btn btn-primary' %></p>
     <% end %>
     <br>
     <br>

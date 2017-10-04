@@ -6,12 +6,18 @@
       <div class="form-group">
         <h1>Welcome</h1>
         <%= form_tag login_path do %>
-          <p>Username: <%= text_field_tag :username %></p>
-          <p>Password: <%= password_field_tag :password %></p>
+          <!-- <p>Username: <%= text_field_tag :username %></p>
+          <p>Password: <%= password_field_tag :password %></p> -->
+          <div class="input-group">
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Username" name="username">
+          </div><br>
+          <div class="input-group">
+            <input type="password" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Password" name="password">
+          </div><br>
           <div><%= radio_button_tag(:user_type, "Host", true) %>
           <%= label_tag(:host, "Host") %>
           <%= radio_button_tag(:user_type, "Entertainer") %>
-          <%= label_tag(:entertainer, "Entertainer") %></div>
+          <%= label_tag(:entertainer, "Entertainer") %></div><br>
           <p><%= submit_tag 'Login', class: 'btn btn-primary'%></p>
         <% end %>
         <p>Don't have an account? Sign up as a <%= link_to "host", host_signup_path %> or an <%= link_to "entertainer", entertainer_signup_path %></p>
