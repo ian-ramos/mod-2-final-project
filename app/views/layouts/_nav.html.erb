@@ -14,7 +14,7 @@
       <li class="nav-item">
         <a class="nav-link" href="<%= messages_path %>">Messages</a>
       </li>
-      
+
       <% if current_user.class == Host %> <!-- current_user is a helper method in application controller -->
       <li class="nav-item">
         <a class="nav-link" href="<%= new_event_path %>">Post New Event</a>
