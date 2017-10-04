@@ -3,7 +3,7 @@
     <div class="col">
  -->
 
-<img src= <%= @entertainer.image %> alt="" class="rounded-circle" width=400px>
+<img src= "<%= @entertainer.image %>" alt="<%= @entertainer.username %>'s profile image" class="rounded-circle" width=400px>
 <h1><%= @entertainer.username %></h1>
 <h2>Type: <%= @entertainer.job_type %></h2>
 <h2>Hourly Rate: $<%= @entertainer.rate %></h2>
