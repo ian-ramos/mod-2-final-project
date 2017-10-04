@@ -9,6 +9,7 @@ Entertainer.create(username: "jonopens", job_type: "Magician", image: 'http://me
 Entertainer.create(username: "ianramos", job_type: "Animal Tamer", image: 'https://openclipart.org/image/2400px/svg_to_png/218951/animaltrainer.png', rate: '25', description: 'I can tame lions n stuff.', password: "password")
 Entertainer.create(username: "ryansperzel", job_type: "Clown", image: 'http://s.hswstatic.com/gif/how-clowns-work-orig.jpg', rate: '25', description: 'balloon animals are sweet.', password: "password")
 Entertainer.create(username: "asheaust", job_type: "Magician", image: 'https://avatars.githubusercontent.com/u/27021764', rate: '50', description: 'watch me split this keyboard in half!', password: "password")
+Entertainer.create(username: "SlaveLeia", job_type: "Belly Dancer", image: 'https://amazingstoriesmag.com/wp-content/uploads/2015/11/Rare-Slave-Leia-Images-star-wars-35052856-2276-2880.jpg', rate: '100', description: "i'm your sister", password: "password")
 Host.create(username: "spiderman", password: "password")
 Host.create(username: "green-goblin", password: "password")
 Host.create(username: "venom", password: "password")

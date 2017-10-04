@@ -1,1 +1,51 @@
-<%= render 'entertainer' %>
+<div>
+  <% if @entertainer.errors.any? %>
+    <div style="width: 35%; margin: 0 auto;">
+      <h2>There were some errors</h2>
+      <ul>
+      <% @entertainer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="width: 35%; margin: 0 auto;">
+    <h1>Edit Entertainer</h1>
+   <%= form_for @entertainer do |f| %>
+    <div class="input-group">
+      <!-- <span class="input-group-addon" id="basic-addon1">@</span> -->
+      <input type="text" class="form-control" value="<%= @entertainer.username %>" aria-label="Username" aria-describedby="basic-addon1" name="entertainer[username]">
+    </div>
+    <br>
+    <label for="basic-url">Select a Job Type</label>
+    <select class="form-control form-control-lg" name="entertainer[job_type]">
+      <% Entertainer.job_types.each do |type| %>
+      <option><%= type %></option>
+      <% end %>
+    </select>
+    <br>
+    <div class="input-group">
+      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<%= @entertainer.image %>" name="entertainer[image]">
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input type="text" class="form-control" value="<%= @entertainer.rate %>" aria-label="Amount (to the nearest dollar)" name="entertainer[rate]">
+      <span class="input-group-addon">.00</span>
+    </div>
+    <br>
+    <div class="form-group">
+      <input type="textarea" class="form-control" id="exampleFormControlTextarea1" rows="3" value="<%= @entertainer.description %>" name="entertainer[description]">
+    </div>
+    <br>
+    <div class="input-group">
+      <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="entertainer[password]">
+    </div>
+    <br>
+    <div class="input-group">
+      <input type="password" class="form-control" placeholder="Confirm password" aria-label="Username" aria-describedby="basic-addon1" name="entertainer[password_confirmation]">
+    </div>
+    <br>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
