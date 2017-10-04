@@ -9,7 +9,7 @@
         <%= f.label :events, {value: "#{entertainer.username}"} %><br>
       <% end %>
       <input type="hidden", name="event_id", value="<%= @event.id %>">
-      <%= f.submit 'Choose These Entertainers' %>
+      <%= f.submit 'Choose These Entertainers', class: 'btn btn-primary' %>
     <% end %>
   <% else %>
     <p>This event is still waiting for entertainers to apply. Check back soon!</p>

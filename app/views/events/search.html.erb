@@ -1,18 +1,24 @@
-<h2>Results</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
 
+      <h2>Results</h2>
 
-<% if @entertainer %>
-  <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
-    <% @events.each do |event| %>
-      <%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}", false %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back, then the value if unchecked -->
-      <%= f.label :events, "#{link_to(event.name, event_path(event))}".html_safe %><br>
-    <% end %>
-    <%= f.submit 'Choose These Events' %>
-  <% end %>
-<% end %>
+      <% if @entertainer %>
+        <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
+          <% @events.each do |event| %>
+            <%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}", false %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back, then the value if unchecked -->
+            <%= f.label :events, "#{link_to(event.name, event_path(event))}".html_safe %><br>
+          <% end %>
+          <%= f.submit 'Choose These Events' %>
+        <% end %>
+      <% end %>
 
-<% if @host %>
-  <% @events.each do |event| %>
-    <%= link_to event.name, event_path(event) %><br>
-  <% end %>
-<% end %>
+      <% if @host %>
+        <% @events.each do |event| %>
+          <%= link_to event.name, event_path(event) %><br>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
