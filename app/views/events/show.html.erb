@@ -1,18 +1,23 @@
 <div class="container">
   <div class="row">
+    <div class="col">
+        <h1><%= @event.name %></h1>
+        <p></p>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-lg-12">
-      <h1><%= @event.name %></h1>
       <h2>Event Date</h2>
       <p><%= @event.date.strftime("%B %d, %Y at %I:%M%p") %></p>
       <h2>Event Description</h2>
       <p><%= @event.description %></p>
       <h2>Event Status</h2>
       <% if @event.closed_status %>
-      <%= render 'is_closed' %>
+        <%= render 'is_closed' %>
       <% else %>
-      <%= render 'is_open' %>
+        <%= render 'is_open' %>
       <% end %>
-
+      <br>
       <% if @host.try(:id) == @event.host_id && @host %>
         <p><%= link_to 'Delete this event',url_for(action: :destroy, id: @event.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
       <% end %>
