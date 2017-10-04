@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   patch '/update_entertainers', to: 'hosts#update_entertainers'
   get '/search', to: 'events#search', as: 'search_path'
   post '/search', to: 'events#search'
+  get '/reply/:id', to: 'messages#reply'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
