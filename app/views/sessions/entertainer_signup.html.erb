@@ -13,20 +13,42 @@
 
   <div style="width: 35%; margin: 0 auto;">
     <h1>Create an Entertainer Account</h1>
-  <%= form_for @entertainer do |f| %>
-    <%= f.label 'Username: ' %>
-    <%= f.text_field :username %><br><br>
-    <%= f.label 'Job Type: ' %>
-    <%= f.collection_select :job_type, Entertainer.job_types, :to_s, :to_s %><br><br>
-    <%= f.label 'Image: ' %>
-    <%= f.text_field :image %><br><br>
-    <%= f.label 'Rate: ' %>
-    <%= f.text_field :rate %><br><br>
-    <%= f.label 'Description of Services: ' %>
-    <%= f.text_area :description %><br><br>
-    Password: <%= f.password_field :password %><br><br>
-    Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
-    <%= f.submit %>
+   <%= form_for @entertainer do |f| %>
+    <div class="input-group">
+      <!-- <span class="input-group-addon" id="basic-addon1">@</span> -->
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="entertainer[username]">
+    </div>
+    <br>
+    <label for="basic-url">Select a Job Type</label>
+    <select class="form-control form-control-lg" name="entertainer[job_type]">
+      <% Entertainer.job_types.each do |type| %>
+      <option><%= type %></option>
+      <% end %>
+    </select>
+    <br>
+    <div class="input-group">
+      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Profile picture URL" name="entertainer[image]">
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input type="text" class="form-control" placeholder="Rate charged per hour" aria-label="Amount (to the nearest dollar)" name="entertainer[rate]">
+      <span class="input-group-addon">.00</span>
+    </div>
+    <br>
+    <div class="form-group">
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description of Services" name="entertainer[description]"></textarea>
+    </div>
+    <br>
+    <div class="input-group">
+      <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="entertainer[password]">
+    </div>
+    <br>
+    <div class="input-group">
+      <input type="password" class="form-control" placeholder="Confirm password" aria-label="Username" aria-describedby="basic-addon1" name="entertainer[password_confirmation]">
+    </div>
+    <br>
+    <%= f.submit class: 'btn btn-primary' %>
   <% end %>
   <br>
   <br>
