@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   patch '/update_events', to: 'entertainers#update_events'
   patch '/update_entertainers', to: 'hosts#update_entertainers'
-  get '/search', to: 'events#search', as: 'search_path'
   post '/search', to: 'events#search'
+  post '/filter', to: 'entertainers#filter'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

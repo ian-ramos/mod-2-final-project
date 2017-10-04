@@ -1,14 +1,13 @@
 <h1>Events</h1>
 
 <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>">
-            <%= value %>
-      </div>
+  <%= content_tag :div, value, class: "alert alert-danger flash #{key}" %>
 <% end %>
 <br>
 <br>
 
-<%= form_tag("/search", method: "get") do %>
+
+<%= form_tag("/search", method: "post") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>

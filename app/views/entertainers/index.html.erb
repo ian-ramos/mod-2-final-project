@@ -1,5 +1,30 @@
-<h1>All Entertainers</h1>
 
-<% @entertainers.each do |entertainer| %>
-  <%= link_to entertainer.username, entertainer_path(entertainer) %>
-<% end %>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="float-right">
+        <div class="was-validated">
+        <%= form_tag("/filter", method: "post") do %>
+          <select name="job_type" class="custom-select d-block my-3" required>
+            <option value="">Filter by:</option>
+            <% Entertainer.job_types.each do |type| %>
+              <option><%= type %></option>
+            <% end %>
+          </select>
+          <%= submit_tag("Filter") %>
+        <% end %>
+      </div>
+      </div>
+      <h1>All Entertainers</h1>
+      <ul>
+        <% @entertainers.each do |entertainer| %>
+          <li><%= link_to entertainer.username, entertainer_path(entertainer) %>: <%= entertainer.job_type %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -53,10 +53,10 @@ class EventsController < ApplicationController
       event.name.downcase.include? (params[:q]).downcase
     end
     if @events.size > 0
-      render :search
+      render :index
     else
-      flash[:alert] = "No events were found!"
-      redirect_to events_path
+      flash.now[:danger] = "No events found!"
+      render :index
     end
   end
 

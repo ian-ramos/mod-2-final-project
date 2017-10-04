@@ -53,6 +53,11 @@ class EntertainersController < ApplicationController
     redirect_to entertainers_path
   end
 
+  def filter
+    @entertainers = Entertainer.all.select {|ent| ent.job_type == params[:job_type]}
+    render :index
+  end
+
   private
 
   def entertainer_params
