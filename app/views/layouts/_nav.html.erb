@@ -1,6 +1,44 @@
-<nav>
+<!-- <nav>
   <div style="float: left;">
 
    <% if current_user.class == Host %><%= link_to "Post New Event", new_event_path %> |<% end %> <%= link_to "Events", events_path %> | <%= link_to "Entertainers", entertainers_path %></div>
    <div style="float: right;">You are currently logged in as <%= current_user.class %>, <%= link_to current_user.username, current_user %></span> | <%= link_to "Logout", logout_path %></div>
+
+
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Party Craigslist</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto"> <!-- each element should be a different list item -->
+
+      <% if current_user.class == Host %> <!-- current_user is a helper method in application controller -->
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_event_path %>">Post New Event</a>
+        </li>
+      <% end %>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<%= events_path %>">Events</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<%= entertainers_path %>">Entertainers</a>
+      </li>
+
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="<%= events_path %>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <% if current_user.class== Host %>
+            <a class="dropdown-item" href="<%= new_event_path %>">Create New Event</a>
+          <% end %>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> -->
+    </ul>
+    <span class="navbar-text"> <!-- mr-auto class in ul element allows this to be justified to the right -->
+      You are currently logged in as <%= current_user.class %>, <%= link_to current_user.username, current_user %> | <%= link_to "Logout", logout_path %>
+    </span>
+  </div>
 </nav>
