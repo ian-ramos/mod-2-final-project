@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+  layout "directory"
+
   def index
     @messages = Message.all
     host_or_entertainer

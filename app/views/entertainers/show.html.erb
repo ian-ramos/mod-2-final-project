@@ -1,18 +1,15 @@
-<!-- <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col">
- -->
-
-<img src= "<%= @entertainer.image %>" alt="<%= @entertainer.username %>'s profile image" class="rounded-circle" width=400px>
-<h1><%= @entertainer.username %></h1>
-<h2>Type: <%= @entertainer.job_type %></h2>
-<h2>Hourly Rate: $<%= @entertainer.rate %></h2>
-<h2>About <%= @entertainer.username %>:</h2>
-<p><%= @entertainer.description %></p>
-
-<% if @entertainer.try(:id) == session[:entertainer_id] %>
-  <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @entertainer.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
-<% end %>
-    <!-- </div>
+    <div class="col-lg-12">
+      <img src= "<%= @entertainer.image %>" alt="<%= @entertainer.username %>'s profile image" class="rounded-circle" width=400px>
+      <h1><%= @entertainer.username %></h1>
+      <h2>Type: <%= @entertainer.job_type %></h2>
+      <h2>Hourly Rate: $<%= @entertainer.rate %></h2>
+      <h2>About <%= @entertainer.username %>:</h2>
+      <p><%= @entertainer.description %></p>
+      <% if @entertainer.try(:id) == session[:entertainer_id] %>
+        <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @entertainer.id), method: :delete, data: {confirm: "Are you sure?"} %> | <%= link_to 'Edit my profile', edit_entertainer_path(@entertainer) %></p>
+      <% end %>
+    </div>
   </div>
-</div> -->
+</div>
