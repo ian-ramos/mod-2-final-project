@@ -9,15 +9,17 @@
             <th>Title</th>
             <th>Message</th>
             <th>From</th>
+            <th>Reply</th>
             <th>Delete</th>
           </tr></thead>
           <tbody>
             <% @messages.select {|m| m.receiver == @host.username}.each do |message| %>
               <tr>
-                <td><%= link_to message.title, message_path(message) %></td>
-                <td><%= message.content[0..20] %></td>
-                <td><%= Entertainer.find(message.entertainer_id).username %></td>
-                <td><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></td>
+                <td class="align-middle"><%= link_to message.title, message_path(message) %></td>
+                <td class="align-middle"><%= message.content[0..20] %></td>
+                <td class="align-middle"><%= Entertainer.find(message.entertainer_id).username %></td>
+                <td class="align-middle"><%= form_tag "/reply/#{message.id}", method: :get do |f| %><%= submit_tag 'Reply', class: "btn btn-primary" %><% end %></td>
+                <td class="align-middle"><%= form_for message, method: :delete do |f| %><%= f.submit 'Delete', class: "btn btn-danger" %><% end %></td>
               </tr>
             <% end %>
           </tbody>
@@ -26,15 +28,17 @@
             <th>Title</th>
             <th>Message</th>
             <th>From</th>
+            <th>Reply</th>
             <th>Delete</th>
           </tr></thead>
           <tbody>
             <% @messages.select {|m| m.receiver == @entertainer.username}.each do |message| %>
               <tr>
-                <td><%= link_to message.title, message_path(message) %></td>
-                <td><%= message.content[0..20] %></td>
-                <td><%= Host.find(message.host_id).username %></td>
-                <td><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></td>
+                <td class="align-middle"><%= link_to message.title, message_path(message) %></td>
+                <td class="align-middle"><%= message.content[0..20] %></td>
+                <td class="align-middle"><%= Host.find(message.host_id).username %></td>
+                <td class="align-middle"><%= form_tag "/reply/#{message.id}", method: :get do |f| %><%= submit_tag 'Reply', class: "btn btn-primary" %><% end %></td>
+                <td class="align-middle"><%= form_for message, method: :delete do |f| %><%= f.submit 'Delete', class: "btn btn-danger" %><% end %></td>
               </tr>
             <% end %>
           </tbody>
@@ -50,15 +54,17 @@
             <th>Title</th>
             <th>Message</th>
             <th>To</th>
+            <th>Reply</th>
             <th>Delete</th>
           </tr></thead>
           <tbody>
             <% @messages.select {|m| m.sender == @host.username}.each do |message| %>
               <tr>
-                <td><%= link_to message.title, message_path(message) %></td>
-                <td><%= message.content[0..20] %></td>
-                <td><%= Entertainer.find(message.entertainer_id).username %></td>
-                <td><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></td>
+                <td class="align-middle"><%= link_to message.title, message_path(message) %></td>
+                <td class="align-middle"><%= message.content[0..20] %></td>
+                <td class="align-middle"><%= Entertainer.find(message.entertainer_id).username %></td>
+                <td class="align-middle"><%= form_tag "/reply/#{message.id}", method: :get do |f| %><%= submit_tag 'Reply', class: "btn btn-primary" %><% end %></td>
+                <td class="align-middle"><%= form_for message, method: :delete do |f| %><%= f.submit 'Delete', class: "btn btn-danger" %><% end %></td>
               </tr>
             <% end %>
           </tbody>
@@ -67,15 +73,17 @@
             <th>Title</th>
             <th>Message</th>
             <th>To</th>
+            <th>Reply</th>
             <th>Delete</th>
           </tr></thead>
           <tbody>
             <% @messages.select {|m| m.sender == @entertainer.username}.each do |message| %>
               <tr>
-                <td><%= link_to message.title, message_path(message) %></td>
-                <td><%= message.content[0..20] %></td>
-                <td><%= Host.find(message.host_id).username %></td>
-                <td><%= form_for message, method: :delete do |f| %><%= f.hidden_field :id %><%= f.submit 'Delete' %><% end %></td>
+                <td class="align-middle"><%= link_to message.title, message_path(message) %></td>
+                <td class="align-middle"><%= message.content[0..20] %></td>
+                <td class="align-middle"><%= Host.find(message.host_id).username %></td>
+                <td class="align-middle"><%= form_tag "/reply/#{message.id}", method: :get do |f| %><%= submit_tag 'Reply', class: "btn btn-primary" %><% end %></td>
+                <td class="align-middle"><%= form_for message, method: :delete do |f| %><%= f.submit 'Delete', class: "btn btn-danger" %><% end %></td>
               </tr>
             <% end %>
           </tbody>
