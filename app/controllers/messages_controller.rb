@@ -33,6 +33,22 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
+  def reply
+    @message = Message.find(params[:id])
+    host_or_entertainer
+  end
+
+  def update #not really updating, had to use update method for reply b/c form_for wouldn't custom route
+    @message = Message.new(message_params)
+    host_or_entertainer
+    @host ? @message.update(entertainer_id: Entertainer.find_by(username: message_params[:receiver]).id) : @message.update(host_id: Host.find_by(username: message_params[:receiver]).id)
+    if @message.save
+      redirect_to messages_path
+    else
+      render :reply
+    end
+  end
+
   private
 
   def message_params
