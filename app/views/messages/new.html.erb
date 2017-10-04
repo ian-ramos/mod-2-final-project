@@ -3,10 +3,12 @@
     <%= f.label 'Title: ' %>
     <%= f.text_field :title %><br>
     <%= f.label 'To: ' %>
-    <%= f.text_field :entertainer_username %><br>
+    <%= f.text_field :receiver %><br>
     <%= f.label 'Message: ' %><br>
     <%= f.text_area :content %><br>
-    <%= f.hidden_field :host_username, value: @host.username%>
+    <%= f.hidden_field :sender, value: @host.username%>
+    <%= f.hidden_field :host_id, value: @host.id%>
+    <%= f.hidden_field :entertainer_id, value: nil%>
     <%= f.submit 'Send Message' %>
   <% end %>
 <% else %>
@@ -14,10 +16,12 @@
     <%= f.label 'Title: ' %>
     <%= f.text_field :title %><br>
     <%= f.label 'To: ' %>
-    <%= f.text_field :host_username %><br>
+    <%= f.text_field :receiver %><br>
     <%= f.label 'Message: ' %><br>
     <%= f.text_area :content %><br>
-    <%= f.hidden_field :entertainer_username, value: @entertainer.username%>
+    <%= f.hidden_field :sender, value: @entertainer.username%>
+    <%= f.hidden_field :entertainer_id, value: @entertainer.id%>
+    <%= f.hidden_field :host_id, value: nil%>
     <%= f.submit 'Send Message' %>
   <% end %>
 <% end %>
