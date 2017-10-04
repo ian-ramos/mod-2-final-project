@@ -30,25 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:user_type] == "Host"
-      if Host.find_by(username: params[:username])
-        @host = Host.find_by(username: params[:username])
-        return head(:forbidden) unless @host.authenticate(params[:password])
-        session[:host_id] = @host.id
-        redirect_to host_path(@host)
-      else
-        redirect_to login_path
-      end
-    elsif params[:user_type] == "Entertainer"
-      if Entertainer.find_by(username: params[:username])
-        @entertainer = Entertainer.find_by(username: params[:username])
-        return head(:forbidden) unless @entertainer.authenticate(params[:password])
-        session[:entertainer_id] = @entertainer.id
-        redirect_to entertainer_path(@entertainer)
-      else
-        redirect_to login_path
-      end
-    end
+    create_session_flow
   end
 
   def destroy
@@ -57,4 +39,26 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
+  private
+
+  def user_auth_flow(user, id_sym)
+    if user.authenticate(params[:password])
+      session[id_sym] = user.id
+      redirect_to polymorphic_path(user)
+    else
+      flash.now[:danger] = "Invalid email/password combination. Try again!"
+      render :login
+    end
+  end
+
+  def create_session_flow
+    this_class = params[:user_type].constantize
+    class_name_dc = params[:user_type].downcase
+    if this_class.find_by(username: params[:username])
+      @class_name_dc = this_class.find_by(username: params[:username])
+      user_auth_flow(@class_name_dc, (params[:user_type].downcase + "_id").to_sym)
+    else
+      render :login
+    end
+  end
 end
