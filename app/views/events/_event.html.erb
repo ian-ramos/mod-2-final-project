@@ -7,9 +7,11 @@
       <%= form_for @event do |f| %>
 
         <div class="input-group">
-          <%= f.text_field :name, class: 'form-control' %></div><br>
+          <input type="text" class="form-control" placeholder="Event Name" aria-label="Username" aria-describedby="basic-addon1" name="event[name]">
+        </div><br>
         <div class="input-group">
-          <%= f.text_area :description, class: 'form-control' %></div><br>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Place description here" name="event[description]"></textarea>
+        </div><br>
         <div class="input-group">
           <%= f.date_field :date, class: 'form-control' %></div><br>
         <input id="hidden" type="hidden" name="event[host_id]" value="<%= session[:host_id] %>">
