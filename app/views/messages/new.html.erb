@@ -1,27 +1,47 @@
-<% if @host %>
-  <%= form_for @message do |f| %>
-    <%= f.label 'Title: ' %>
-    <%= f.text_field :title %><br>
-    <%= f.label 'To: ' %>
-    <%= f.text_field :receiver %><br>
-    <%= f.label 'Message: ' %><br>
-    <%= f.text_area :content %><br>
-    <%= f.hidden_field :sender, value: @host.username%>
-    <%= f.hidden_field :host_id, value: @host.id%>
-    <%= f.hidden_field :entertainer_id, value: nil%>
-    <%= f.submit 'Send Message' %>
-  <% end %>
-<% else %>
-  <%= form_for @message do |f| %>
-    <%= f.label 'Title: ' %>
-    <%= f.text_field :title %><br>
-    <%= f.label 'To: ' %>
-    <%= f.text_field :receiver %><br>
-    <%= f.label 'Message: ' %><br>
-    <%= f.text_area :content %><br>
-    <%= f.hidden_field :sender, value: @entertainer.username%>
-    <%= f.hidden_field :entertainer_id, value: @entertainer.id%>
-    <%= f.hidden_field :host_id, value: nil%>
-    <%= f.submit 'Send Message' %>
-  <% end %>
-<% end %>
+<%= render 'layouts/nav' %><br>
+
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <% if @host %>
+      <%= form_for @message do |f| %>
+        <div class="form-group">
+          <h1>Create a New Message:</h1>
+          <%= f.label 'Title: ' %>
+          <%= f.text_field :title, class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.label 'To: ' %>
+          <%= f.text_field :receiver, class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Message: ' %><br>
+          <%= f.text_area :content, class: "form-control" %><br>
+        </div>
+          <%= f.hidden_field :sender, value: @host.username%>
+          <%= f.hidden_field :host_id, value: @host.id%>
+          <%= f.hidden_field :entertainer_id, value: nil%>
+          <%= f.submit 'Send Message', class: "btn btn-primary"%>
+      <% end %>
+    <% else %>
+      <%= form_for @message do |f| %>
+        <div class="form-group">
+          <h1>Create a New Message:</h1>
+          <%= f.label 'Title: ' %>
+          <%= f.text_field :title, class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.label 'To: ' %>
+          <%= f.text_field :receiver, class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Message: ' %><br>
+          <%= f.text_area :content, class: "form-control" %><br>
+        </div>
+          <%= f.hidden_field :sender, value: @entertainer.username%>
+          <%= f.hidden_field :entertainer_id, value: @entertainer.id%>
+          <%= f.hidden_field :host_id, value: nil%>
+          <%= f.submit 'Send Message', class: "btn btn-primary"%>
+      <% end %>
+    <% end %>
+  </div> <!-- close row div -->
+</div> <!-- close container div -->
