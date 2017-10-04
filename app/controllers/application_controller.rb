@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
   end
 
   def welcome
+    if session[:host_id] || session[:entertainer_id]
+      redirect_to events_path
+    end
   end
 
   def require_login
