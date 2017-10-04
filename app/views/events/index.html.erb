@@ -1,32 +1,37 @@
-<h1>Events</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Events</h1>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "alert alert-danger flash #{key}" %>
+      <% end %>
+      <br>
+      <br>
 
-<% flash.each do |key, value| %>
-  <%= content_tag :div, value, class: "alert alert-danger flash #{key}" %>
-<% end %>
-<br>
-<br>
+      <%= form_tag("/search", method: "post") do %>
+        <div class="form-group">
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q, '', class: 'form-control col-3') %></div>
+        <%= submit_tag("Search", class: 'btn btn-primary') %>
+      <% end %>
+      <br>
+      <br>
 
+      <% if @entertainer %>
+        <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
+          <% @events.select {|e| e.closed_status == false}.each do |event| %>
+            <%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}", false %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back, then the value if unchecked -->
+            <%= f.label :events, "#{link_to(event.name, event_path(event))}".html_safe %><br>
+          <% end %>
+          <%= f.submit 'Choose These Events', class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
 
-<%= form_tag("/search", method: "post") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
-<br>
-<br>
-
-<% if @entertainer %>
-  <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
-    <% @events.select {|e| e.closed_status == false}.each do |event| %>
-      <%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}", false %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back, then the value if unchecked -->
-      <%= f.label :events, "#{link_to(event.name, event_path(event))}".html_safe %><br>
-    <% end %>
-    <%= f.submit 'Choose These Events' %>
-  <% end %>
-<% end %>
-
-<% if @host %>
-  <% @events.select {|e| e.closed_status == false}.each do |event| %>
-    <%= link_to event.name, event_path(event) %><br><br>
-  <% end %>
-<% end %>
+      <% if @host %>
+        <% @events.select {|e| e.closed_status == false}.each do |event| %>
+          <%= link_to event.name, event_path(event) %><br><br>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,21 @@
-<h1><%= @message.title %></h1>
-<h4>Message:</h4>
-<%= @message.content %>
+<div class="container">
+  <div class="row justify-content-center">
+    <h1><%= @message.title %></h1>
+  </div>
+  <div class="row justify-content-center">
+    <h5>To: <%= @message.receiver %> | From: <%= @message.sender %></h5>
+  </div>
+  <div class="row justify-content-center">
+    <h5>Message: <%= @message.content %></h5>
+  </div>
+  <div class="row justify-content-center">
+    <div style="margin-right: 20px"> <!-- this div will separate buttons -->
+      <%= form_tag "/reply/#{@message.id}", method: :get do %>
+        <%= submit_tag 'Reply' %>
+      <% end %>
+    </div>
+    <%= form_for @message, method: :delete do |f| %>
+      <%= f.submit 'Delete'%>
+    <% end %>
+  </div>
+</div>

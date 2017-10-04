@@ -1,6 +1,13 @@
-<h1> All Hosts</h1>
-<ul>
-  <% @hosts.each do |h| %>
-    <li><%= link_to h.username, host_path(h) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <h1> All Hosts</h1>
+      <ul>
+        <% @hosts.each do |h| %>
+          <li><%= link_to h.username, host_path(h) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

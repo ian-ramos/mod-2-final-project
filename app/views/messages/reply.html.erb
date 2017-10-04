@@ -1,0 +1,39 @@
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <% if @host %>
+      <%= form_for @message do |f| %>
+        <div class="form-group">
+          <h1>Reply to Message:</h1><br>
+          <%= f.text_field :title, value: "Re: #{@message.title}", class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :receiver, value: @message.sender, class: "form-control" %><br> <!-- when replying, the person who sent the message will receive -->
+        </div>
+        <div class="form-group">
+          <%= f.text_area :content, value: "", class: "form-control" %><br>
+        </div>
+          <%= f.hidden_field :sender, value: @host.username%>
+          <%= f.hidden_field :host_id, value: @host.id%>
+          <%= f.hidden_field :entertainer_id, value: nil%>
+          <%= f.submit 'Reply', class: "btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <%= form_for @message do |f| %>
+        <div class="form-group">
+          <h1>Reply to Message:</h1><br>
+          <%= f.text_field :title, value: "Re: #{@message.title}", class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :receiver, value: @message.sender, class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :content, value:"", class: "form-control" %><br>
+        </div>
+          <%= f.hidden_field :sender, value: @entertainer.username%>
+          <%= f.hidden_field :entertainer_id, value: @entertainer.id%>
+          <%= f.hidden_field :host_id, value: nil%>
+          <%= f.submit 'Reply', class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div> <!-- close row div -->
+</div> <!-- close container div -->

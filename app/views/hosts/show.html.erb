@@ -1,19 +1,26 @@
-<h1><%= @host.username %>'s Profile</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
 
-<h2><%= @host.username %>'s Events</h2>
-<ul>
-  <% @host.events.each do |ev| %>
-    <li><%= link_to ev.name, event_path(ev) %></li>
-  <% end %>
-</ul>
+      <h1><%= @host.username %>'s Profile</h1>
 
-<h2>Entertainers used by <%= @host.username %></h2>
-<ul>
-  <% @host.entertainers.each do |entertainer| %>
-    <li><%= link_to entertainer.username, entertainer_path(entertainer) %></li>
-  <% end %>
-</ul>
+      <h2><%= @host.username %>'s Events</h2>
+      <ul>
+        <% @host.events.each do |ev| %>
+          <li><%= link_to ev.name, event_path(ev) %></li>
+        <% end %>
+      </ul>
 
-<% if @host.try(:id) == session[:host_id] %>
-  <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @host.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
-<% end %>
+      <h2>Entertainers used by <%= @host.username %></h2>
+      <ul>
+        <% @host.entertainers.each do |entertainer| %>
+          <li><%= link_to entertainer.username, entertainer_path(entertainer) %></li>
+        <% end %>
+      </ul>
+
+      <% if @host.try(:id) == session[:host_id] %>
+        <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @host.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
