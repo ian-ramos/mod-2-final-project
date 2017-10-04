@@ -1,19 +1,21 @@
-<div>
-
-  <div style="width: 35%; margin: 0 auto;">
-    <h1>Welcome</h1>
-    <%= form_tag login_path do %>
-      <p>Username: <%= text_field_tag :username %></p>
-      <p>Password: <%= password_field_tag :password %></p>
-      <p>Password Confirmation: <%= password_field_tag :password_confirmation %></p>
-      <%= radio_button_tag(:user_type, "Host", true) %>
-      <%= label_tag(:host, "Host") %>
-      <%= radio_button_tag(:user_type, "Entertainer") %>
-      <%= label_tag(:entertainer, "Entertainer") %><br>
-      <p><%= submit_tag 'Login'%></p>
+  <div class="container h-100">
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "alert alert-danger flash #{key}" %>
     <% end %>
-    <br>
-    <br>
-    Don't have an account? Sign up as a <%= link_to "host", host_signup_path %> or an <%= link_to "entertainer", entertainer_signup_path %>
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="form-group">
+        <h1>Welcome</h1>
+        <%= form_tag login_path do %>
+          <p>Username: <%= text_field_tag :username %></p>
+          <p>Password: <%= password_field_tag :password %></p>
+          <div><%= radio_button_tag(:user_type, "Host", true) %>
+          <%= label_tag(:host, "Host") %>
+          <%= radio_button_tag(:user_type, "Entertainer") %>
+          <%= label_tag(:entertainer, "Entertainer") %></div>
+          <p><%= submit_tag 'Login', class: 'btn btn-primary'%></p>
+        <% end %>
+        <p>Don't have an account? Sign up as a <%= link_to "host", host_signup_path %> or an <%= link_to "entertainer", entertainer_signup_path %></p>
+      </div>
+    </div>
   </div>
 </div>
