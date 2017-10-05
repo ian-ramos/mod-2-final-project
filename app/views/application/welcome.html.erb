@@ -16,16 +16,15 @@
     <title></title>
   </head>
   <body>
-    <div class="content">
-
+<div class="container">
   <h1>Welcome</h1>
-
-  <p><%= link_to "Log in", login_path, class: 'btn btn-primary' %></p>
-
-  <p><%= link_to "Entertainer Signup", entertainer_signup_path, class: 'btn btn-primary' %> || <%= link_to "Host Signup", host_signup_path, class: 'btn btn-primary' %></p>
-
+  <div style="width: 5%; margin: 0 auto;">
+  <%= link_to "Log in", login_path, class: 'btn btn-primary' %><br><br><br><br>
   </div>
+  <div style="width: 60%; margin: 0 auto;">
+  <%= link_to "Entertainer Signup", entertainer_signup_path, class: 'btn btn-primary float-left' %><%= link_to "Host Signup", host_signup_path, class: 'btn btn-primary float-right' %>
   </div>
+</div>
   </body>
 </html>
 <div>

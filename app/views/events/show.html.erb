@@ -20,6 +20,8 @@
       <br>
       <% if @host.try(:id) == @event.host_id && @host %>
         <p><%= link_to 'Delete this event',url_for(action: :destroy, id: @event.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
+      <% else %>
+        <p>Posted by: <%= link_to @event.host.username, host_path(@event.host) %></p>
       <% end %>
     </div>
   </div>

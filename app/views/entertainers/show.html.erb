@@ -9,6 +9,8 @@
       <p><%= @entertainer.description %></p>
       <% if @entertainer.try(:id) == session[:entertainer_id] %>
         <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @entertainer.id), method: :delete, data: {confirm: "Are you sure?"} %> | <%= link_to 'Edit my profile', edit_entertainer_path(@entertainer) %></p>
+      <% else %>
+        <p><%= link_to 'Message', new_message_path, class: "btn btn-primary" %></p>
       <% end %>
     </div>
   </div>
