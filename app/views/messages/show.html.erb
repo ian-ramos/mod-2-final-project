@@ -1,21 +1,24 @@
 <div class="container">
+
   <div class="row justify-content-center">
-    <h1><%= @message.title %></h1>
-  </div>
-  <div class="row justify-content-center">
-    <h5>To: <%= @message.receiver %> | From: <%= @message.sender %></h5>
-  </div>
-  <div class="row justify-content-center">
-    <h5>Message: <%= @message.content %></h5>
-  </div>
-  <div class="row justify-content-center">
-    <div style="margin-right: 20px"> <!-- this div will separate buttons -->
-      <%= form_tag "/reply/#{@message.id}", method: :get do %>
-        <%= submit_tag 'Reply', class: "btn btn-primary" %>
-      <% end %>
+    <div class="card" style="width: 850px">
+      <div class="card-body">
+        <h4 class="card-title"><%= @message.title %></h4>
+        <h6 class="card-subtitle mb-2 text-muted">To: <%= @message.receiver %></h6>
+        <h6 class="card-subtitle mb-2 text-muted">From: <%= @message.sender %></h6>
+        <p class="card-text"><%= @message.content %></p>
+        <div class="row">
+        <div style="margin-right: 20px"> <!-- this div will separate buttons -->
+          <%= form_tag "/reply/#{@message.id}", method: :get do %>
+            <%= submit_tag 'Reply', class: "btn btn-primary" %>
+          <% end %>
+        </div>
+          <%= form_for @message, method: :delete do |f| %>
+            <%= f.submit 'Delete', class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <%= form_for @message, method: :delete do |f| %>
-      <%= f.submit 'Delete', class: "btn btn-danger" %>
-    <% end %>
   </div>
+
 </div>
