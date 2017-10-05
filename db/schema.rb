@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005132300) do
+ActiveRecord::Schema.define(version: 20171005151158) do
 
   create_table "entertainers", force: :cascade do |t|
     t.string "username"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20171005132300) do
     t.boolean "closed_status", default: false
     t.string "duration"
     t.string "job_needs"
+    t.string "city"
+    t.string "state"
   end
 
   create_table "events_entertainers", force: :cascade do |t|
