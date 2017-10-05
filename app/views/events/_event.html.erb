@@ -1,9 +1,3 @@
-      <% if @event.errors.any? %>
-        <% @event.errors.full_messages.each do |message| %>
-          <%= message %>
-        <% end %>
-      <% end %>
-
       <%= form_for @event do |f| %>
 
         <div class="input-group">
@@ -11,6 +5,12 @@
         </div><br>
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Event Duration (in hours)" aria-label="Event Duration" aria-describedby="basic-addon1" name="event[duration]">
+        </div><br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Event City" aria-label="Event City" aria-describedby="basic-addon1" name="event[city]">
+        </div><br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Event State" aria-label="Event State" aria-describedby="basic-addon1" name="event[state]">
         </div><br>
         <div class="input-group">
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Place description here" name="event[description]"></textarea>
