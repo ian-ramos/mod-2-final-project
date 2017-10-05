@@ -1,0 +1,59 @@
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="form-group">
+      <h1>Invoice for <%= @event.name %></h1>
+      <div class="big-top-buffer"></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Entertainer</th>
+            <th>Rate</th>
+            <th>Event Duration</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @event.entertainers.each do |entertainer| %>
+            <tr>
+              <td><%= entertainer.job_type.titleize %></td>
+              <td><%= entertainer.username.titleize %></td>
+              <td>$<%= entertainer.rate %></td>
+              <td><%= @event.duration %></td>
+              <td>$<%= @event.convert_to_two_decimals(@event.entertainer_cost(entertainer)) %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>10% Handling Fee</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$<%= @event.convert_to_two_decimals(@event.cut_of_profit) %></td>
+          </tr>
+          <tr>
+            <th>Sub-Total</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>$<%= @event.subtotal %></th>
+          </tr>
+          <tr>
+            <td>Tax</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$<%= @event.convert_to_two_decimals(@event.tax) %></td>
+          </tr>
+          <tr>
+            <th>Total Cost</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>$<%= @event.total %></th>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

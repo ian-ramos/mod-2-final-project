@@ -60,10 +60,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def bill
+    @event = Event.find(params[:id])
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :date, :host_id)
+    params.require(:event).permit(:name, :description, :date, :duration, :host_id)
   end
 
 end

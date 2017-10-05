@@ -7,7 +7,10 @@
       <%= form_for @event do |f| %>
 
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Event Name" aria-label="Username" aria-describedby="basic-addon1" name="event[name]">
+          <input type="text" class="form-control" placeholder="Event Name" aria-label="Event Name" aria-describedby="basic-addon1" name="event[name]">
+        </div><br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Event Duration (in hours)" aria-label="Event Duration" aria-describedby="basic-addon1" name="event[duration]">
         </div><br>
         <div class="input-group">
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Place description here" name="event[description]"></textarea>
