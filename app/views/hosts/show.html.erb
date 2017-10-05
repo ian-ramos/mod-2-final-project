@@ -20,7 +20,7 @@
     <div class="col" style="padding-left: 150px">
       <h3>Entertainers used by <%= @host.username %></h3>
       <ul>
-        <% @host.entertainers.each do |entertainer| %>
+        <% @host.entertainers.uniq.each do |entertainer| %>
           <li><%= link_to entertainer.username, entertainer_path(entertainer) %></li>
         <% end %>
       </ul>
