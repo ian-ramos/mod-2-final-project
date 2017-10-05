@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   post '/filter', to: 'entertainers#filter'
   get '/reply/:id', to: 'messages#reply'
   get '/events/:id/bill', to: 'events#bill', as: 'event_invoice'
-  post '/messages/new', to: 'messages#new_post' # route added for link_to test
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
