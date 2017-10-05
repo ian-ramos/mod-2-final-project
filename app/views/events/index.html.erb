@@ -1,4 +1,6 @@
 <div class="container">
+
+  <!-- heading -->
   <div class="row justify-content-center">
     <h1>Events</h1>
     <% flash.each do |key, value| %>
@@ -8,6 +10,7 @@
 
   <div class="big-top-buffer"></div>
 
+  <!-- search function -->
   <div class="row justify-content-center">
     <%= form_tag("/search", method: "post") do %>
       <div class="form-group">
@@ -23,24 +26,61 @@
     <h4>Open Events:</h4>
   </div>
 
+  <div class="sm-top-buffer"></div>
+
+  <!-- table of events -->
   <div class="row justify-content-center">
     <% if @entertainer %>
-      <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
-        <% @events.select {|e| e.closed_status == false}.each do |event| %>
-          <%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}", false %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back, then the value if unchecked -->
-          <%= f.label :events, "#{link_to(event.name, event_path(event))}".html_safe %><br>
-        <% end %>
-        <%= f.submit 'Choose These Events', class: 'btn btn-primary' %>
-      <% end %>
-    <% end %>
+        <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
+        <table class="table">
+          <thead class="thead-default"><tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>City</th>
+            <th>State</th>
+          </tr></thead>
+          <% @events.select {|e| e.closed_status == false}.each do |event| %>
+            <tbody>
+              <tr>
+                <td><%= f.check_box :events, {name: 'entertainer[event_ids][]', checked: (true if @entertainer.events.include?(event))}, "#{event.id}", false %> <!-- first argument is method you'd be calling on @entertainer, then a hash of optional arguments, then the value that will be passed back, then the value if unchecked -->
+                <%= f.label :events, "#{link_to(event.name, event_path(event))}".html_safe %></td>
+                <td><%= event.description[0..140] %></td>
+                <td><%= event.duration %></td>
+                <td><%= event.city %></td>
+                <td><%= event.state %></td>
+              <% end %> <!-- ends iterations -->
+              </tr>
+          </tbody>
+        </table>
+        <div class="row justify-content-center"> <!-- center submit button -->
+          <%= f.submit 'Choose These Events', class: 'btn btn-primary' %>
+        </div>
+      <% end %> <!-- ends form -->
+    <% end %> <!-- ends if -->
 
     <% if @host %>
-      <ul>
-        <% @events.select {|e| e.closed_status == false}.each do |event| %>
-          <li><%= link_to event.name, event_path(event) %></li>
-        <% end %>
-      <% end %>
-    </ul>
+      <table class="table">
+        <thead class="thead-default"><tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Duration</th>
+          <th>City</th>
+          <th>State</th>
+        </tr></thead>
+          <% @events.select {|e| e.closed_status == false}.each do |event| %>
+          <tbody>
+            <tr>
+              <td><%= link_to event.name, event_path(event) %></td>
+              <td><%= event.description[0..140] %></td>
+              <td><%= event.duration %></td>
+              <td><%= event.city %></td>
+              <td><%= event.state %></td>
+            </tr>
+          <% end %> <!-- ends interation -->
+        </tbody>
+      <% end %> <!-- ends if -->
+    </table>
   </div>
 
 </div>
