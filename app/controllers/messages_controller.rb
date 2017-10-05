@@ -49,6 +49,12 @@ class MessagesController < ApplicationController
     end
   end
 
+  def new_post
+    @message = Message.new(message_params)
+    host_or_entertainer
+    redirect_to new_message_path
+  end
+
   private
 
   def message_params
