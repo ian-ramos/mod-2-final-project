@@ -40,10 +40,11 @@ class HostsController < ApplicationController
   def update_entertainers #update coming from event show page
     @host = Host.find(session[:host_id])
     if params.include?(:host)
-      Event.find(params[:event_id]).entertainers.clear
+      @event = Event.find(params[:event_id])
+      @event.entertainers.clear
       entertainer_ids(params[:host][:entertainer_ids], params[:event_id])
-      Event.find(params[:event_id]).update(closed_status: true)
-      redirect_to host_path(@host)
+      @event.update(closed_status: true)
+      redirect_to event_invoice_path(@event)
     else
       Event.find(params[:event_id]).entertainers.clear
       redirect_to host_path(@host)
