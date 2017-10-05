@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20171005154330) do
     t.boolean "closed_status", default: false
     t.string "duration"
     t.string "job_needs"
+    t.string "city"
+    t.string "state"
   end
 
   create_table "events_entertainers", force: :cascade do |t|
