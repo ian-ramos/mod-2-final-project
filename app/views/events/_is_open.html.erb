@@ -1,4 +1,4 @@
-<p>Your event is currently open and accepting entertainer applications.</p>
+<p>This event is currently open and accepting entertainer applications.</p>
 <h2>Event Entertainers</h2>
 <% if @host.try(:id) == @event.host_id && @host %>
   <% if @event.entertainers.any? %>
@@ -9,7 +9,7 @@
         <%= f.label :events, "#{link_to(entertainer.username, entertainer_path(entertainer))}".html_safe %><br>
       <% end %>
       <input type="hidden", name="event_id", value="<%= @event.id %>">
-      <%= f.submit 'Choose These Entertainers', class: 'btn btn-primary' %>
+      <%= f.submit 'Finalize Event Entertainers', class: 'btn btn-primary', data: {confirm: "Your event's entertainers are now finalized. You are being redirected to your invoice. Thank you for relying on us!"} %>
     <% end %>
   <% else %>
     <p>This event is still waiting for entertainers to apply. Check back soon!</p>

@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col">
         <h1><%= @event.name %></h1>
-        <p></p>
+        <div class="big-top-buffer"></div>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
       <h2>Event Date</h2>
-      <p><%= @event.date.strftime("%B %d, %Y at %I:%M%p") %></p>
+      <p><%= @event.date.strftime("%B %d, %Y") %></p>
       <h2>Event Description</h2>
       <p><%= @event.description %></p>
       <h2>Event Status</h2>
@@ -22,7 +22,7 @@
         <% if @event.closed_status == true %>
           <p>An invoice for your event has been generated. Please <%= link_to 'click here', event_invoice_path(@event) %> to review it.</p>
         <% end %>
-        <p><%= link_to 'Delete this event',url_for(action: :destroy, id: @event.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %></p>
+        <p><%= link_to 'Delete Event',url_for(action: :destroy, id: @event.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %></p>
       <% else %>
         <p>Posted by: <%= link_to @event.host.username, host_path(@event.host) %></p>
       <% end %>

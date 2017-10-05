@@ -5,8 +5,7 @@
       <% flash.each do |key, value| %>
         <%= content_tag :div, value, class: "alert alert-danger flash #{key}" %>
       <% end %>
-      <br>
-      <br>
+      <div class="big-top-buffer"></div>
 
       <%= form_tag("/search", method: "post") do %>
         <div class="form-group">
@@ -14,8 +13,7 @@
         <%= text_field_tag(:q, '', class: 'form-control col-3') %></div>
         <%= submit_tag("Search", class: 'btn btn-primary') %>
       <% end %>
-      <br>
-      <br>
+      <div class="big-top-buffer"></div>
 
       <% if @entertainer %>
         <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
