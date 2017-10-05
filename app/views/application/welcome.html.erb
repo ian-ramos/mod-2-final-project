@@ -1,5 +1,5 @@
 
-
+<!--
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,4 +27,115 @@
 </div>
   </body>
 </html>
-<div>
+<div> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+  .center {
+    margin-left: auto ;
+    margin-right: auto ;
+  }
+
+  .bg-1 {
+       background-image: url(balloons.jpg); /* Green */
+       background-size: cover;
+        color: #ffffff;
+    }
+  .bg-2 {
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 {
+      background-image: url(grass.png); /* Green */
+      background-size: cover;
+      color: #555555;
+  }
+  .bg-4 {
+    background-color: #2f2f2f;
+    color: #ffffff;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+
+  .navbar-nav li a:hover {
+      color: #1abc9c !important;
+  }
+  .margin {margin-bottom: 45px;}
+
+
+
+
+  </style>
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <img src="balloon.png" class="navbar-brand" height="150" style="display:inline">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="row" id="myNavbar">
+        <ul class="nav navbar-right">
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#testimonials">TESTIMONIALS</a></li>
+          <li><a href="/login">LOGIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container-fluid bg-1 text-center">
+<h3 class="margin">Who Am I?</h3>
+<img src="party.jpg" alt="Bird" class=" img-responsive img-circle" height="150" width="200" style="display:inline">
+<div style="width: 20%" class="center"><a href="" class="btn btn-info btn-lg btn-block btn-huge">Center -> out</a></div>
+</div>
+<div id="about" class="container-fluid bg-2 text-center">
+  <h3 class="margin">Who Are We?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <a href="#" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-user"></span>   Sign Up</a>
+</div>
+<div id="testimonials" class="container-fluid bg-3 text-center">
+  <h3 style="color:white" class="margin">Testimonials</h3>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="ryan.jpg" class="img-responsive margin" style="width:100%">
+      <p style="color:white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="col-sm-4">
+      <p style="color:white">Lorem ipsum..</p>
+    </div>
+    <div class="col-sm-4">
+      <p style="color:white">Lorem ipsum..</p>
+    </div>
+  </div>
+  </div>
+  <footer class="container-fluid bg-4 text-center">
+    <span class="text-muted">© 2017 Jon Openshaw Ian Ramos Ryan Sperzel ALL RIGHTS RESERVED</span>
+  </footer>
+
+</body>
+</html>

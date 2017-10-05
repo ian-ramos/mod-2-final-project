@@ -50,7 +50,9 @@ class EntertainersController < ApplicationController
   def destroy
     @entertainer = Entertainer.find(params[:id])
     @entertainer.destroy
-    redirect_to entertainers_path
+    session.delete :host_id
+    session.delete :entertainer_id
+    redirect_to '/'
   end
 
   def filter
