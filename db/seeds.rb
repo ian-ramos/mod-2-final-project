@@ -1,14 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 Entertainer.create(username: "jonopens", job_type: "Magician", image: 'http://media.gettyimages.com/photos/1960s-man-magician-wearing-picture-id563941525', rate: '25', description: 'so much magic.', password: "password")
 Entertainer.create(username: "ianramos", job_type: "Animal Tamer", image: 'https://openclipart.org/image/2400px/svg_to_png/218951/animaltrainer.png', rate: '25', description: 'I can tame lions n stuff.', password: "password")
 Entertainer.create(username: "ryansperzel", job_type: "Clown", image: 'http://s.hswstatic.com/gif/how-clowns-work-orig.jpg', rate: '25', description: 'balloon animals are sweet.', password: "password")
 Entertainer.create(username: "asheaust", job_type: "Magician", image: 'https://avatars.githubusercontent.com/u/27021764', rate: '50', description: 'watch me split this keyboard in half!', password: "password")
+Entertainer.create(username: "shawdoot", job_type: "Musician", image: 'https://media.licdn.com/media/AAIA_wDGAAAAAQAAAAAAAAp9AAAAJDFlMDUyODc5LThhOWItNGJkMi04YzVjLWJhYWFjZDZlYTA4ZQ.jpg', rate: '40', description: 'doot', password: "password")
 Entertainer.create(username: "SlaveLeia", job_type: "Belly Dancer", image: 'https://amazingstoriesmag.com/wp-content/uploads/2015/11/Rare-Slave-Leia-Images-star-wars-35052856-2276-2880.jpg', rate: '100', description: "i'm your sister", password: "password")
 Host.create(username: "spiderman", password: "password", image: 'https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png')
 Host.create(username: "green-goblin", password: "password", image: 'https://upload.wikimedia.org/wikipedia/en/f/fe/Green_Goblin.png')
@@ -18,9 +12,9 @@ Host.create(username: "bored guy", password: "password", image: 'https://assets.
 Event.create(name: "Old guys playing bocce", description: "It's old guys playing bocce.", host_id: 1, date: Time.now, duration: "4.5", city: "New York", state: "NY")
 Event.create(name: "Nerds reading comics", description: "It's nerds reading comics.", host_id: 3, date: Time.now, duration: "3", city: "Boston", state: "MA")
 Event.create(name: "Hanging with Mr. Cooper", description: "Mark Curry is a genius, and his sitcom is a piece of timeless art.", host_id: 2, date: Time.now, duration: "6", city: "Oakland", state: "CA")
-Event.create(name: "Coronation of Her Majesty, the Queen", description: "It baffles me why we are inviting the commoners to perform, but Her Ladyship requires it. Therefore, I comply.", host_id: 4, date: Time.now, duration: "3", city: "Boston", state: "MA")
+Event.create(name: "Coronation of Her Majesty, the Queen", description: "It baffles me why we are inviting the commoners to perform, but Her Ladyship requires it. Therefore, I comply.", host_id: 4, date: Time.now, duration: "3", city: "Queens", state: "New York")
 Event.create(name: "Hanging out (lol) with friends", description: "I'm a spiderman, so this was a very clever joke hahahhaha omg my sides", host_id: 1, date: Time.now, duration: "2", city: "Detroit", state: "MI")
-Event.create(name: "Be bored together in the country", description: "The town has a gas station, a church, a bar, and an ammo store. There's a good time in there somewhere", host_id: 3, date: Time.now, duration: "10.5", city: "Lake George", state: "MN")
+Event.create(name: "Be bored together in the country", description: "The town has a gas station, a church, a bar, and an ammo store. There's a good time in there somewhere", host_id: 5, date: Time.now, duration: "10.5", city: "Lake George", state: "MN")
 EventsEntertainer.create(event_id: 1, entertainer_id: 3)
 EventsEntertainer.create(event_id: 1, entertainer_id: 5)
 EventsEntertainer.create(event_id: 1, entertainer_id: 1)
