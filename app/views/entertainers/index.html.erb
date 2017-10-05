@@ -1,30 +1,48 @@
-
-
-
-
-
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="float-right">
-        <div class="was-validated">
-        <%= form_tag("/filter", method: "post") do %>
-          <select name="job_type" class="custom-select d-block my-3" required>
-            <option value="">Filter by:</option>
-            <% Entertainer.job_types.each do |type| %>
-              <option><%= type %></option>
-            <% end %>
-          </select>
+
+  <!-- filter section-->
+  <div class="row justify-content-center">
+    <div class="was-validated">
+      <%= form_tag("/filter", method: "post") do %>
+        <select name="job_type" class="custom-select d-block my-3" required>
+          <option value="">Filter by:</option>
+          <% Entertainer.job_types.each do |type| %>
+            <option><%= type %></option>
+          <% end %>
+        </select>
+        <div class="row justify-content-center"> <!-- to center filter button -->
           <%= submit_tag("Filter") %>
-        <% end %>
-      </div>
-      </div>
-      <h1>All Entertainers</h1>
-      <ul>
-        <% @entertainers.each do |entertainer| %>
-          <li><%= link_to entertainer.username, entertainer_path(entertainer) %>: <%= entertainer.job_type %></li>
-        <% end %>
-      </ul>
+        </div>
+      <% end %>
     </div>
   </div>
+
+  <div class="big-top-buffer"></div>
+
+  <div class="row justify-content-center">
+    <h3>Available Entertainers</h3>
+  </div>
+
+  <div class="sm-top-buffer"></div>
+
+    <!-- entertainers table -->
+  <div class="row justify-content-center">
+    <table class="table">
+      <thead class="thead-default"><tr>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Description</th>
+        <th>Rate</th>
+      </tr></thead>
+      <% @entertainers.each do |entertainer| %>
+        <tr>
+          <td><%= link_to entertainer.username, entertainer_path(entertainer) %></td>
+          <td><%= entertainer.job_type %></td>
+          <td><%= entertainer.description %></td>
+          <td><%= entertainer.rate %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
 </div>
