@@ -54,7 +54,9 @@ class HostsController < ApplicationController
   def destroy
     @host = Host.find(params[:id])
     @host.destroy
-    redirect_to hosts_path
+    session.delete :host_id
+    session.delete :entertainer_id
+    redirect_to '/'
   end
 
   private
