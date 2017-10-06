@@ -6,7 +6,7 @@
   <div class="row justify-content-center">
     <h1><%= @entertainer.username %></h1>
   </div>
-  
+
   <div class = "row">
     <div class="col" style="padding-left: 150px">
       <h3>Type: <%= @entertainer.job_type %></h3>
@@ -14,9 +14,9 @@
       <h3>About <%= @entertainer.username %>:</h3>
       <p><%= @entertainer.description %></p>
       <% if @entertainer.try(:id) == session[:entertainer_id] %>
-        <p><%= link_to 'Edit my profile', edit_entertainer_path(@entertainer), class: "btn btn-primary" %> | <%= link_to 'Delete my profile',url_for(action: :destroy, id: @entertainer.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></p>
+        <p><%= link_to 'Edit my profile', edit_entertainer_path(@entertainer), class: "btn btn-primary" %><span style="color: silver;"></p>
       <% else %>
-        <p><%= link_to 'Message', new_message_path, class: "btn btn-primary" %></p>
+        <p><%= link_to 'Message Me', new_message_path, class: "btn btn-primary" %></p>
       <% end %>
     </div> <!-- close column -->
 

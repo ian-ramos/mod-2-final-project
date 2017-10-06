@@ -58,6 +58,7 @@ class SessionsController < ApplicationController
       @class_name_dc = this_class.find_by(username: params[:username])
       user_auth_flow(@class_name_dc, (params[:user_type].downcase + "_id").to_sym)
     else
+      flash.now[:danger] = "No such user exists. Sign up or try again!"
       render :login
     end
   end

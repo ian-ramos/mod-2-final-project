@@ -16,11 +16,11 @@
         <% end %>
       </ul>
     </div> <!-- close host's event column -->
-    
+
     <div class="col" style="padding-left: 150px">
       <h3>Entertainers used by <%= @host.username %></h3>
       <ul>
-        <% @host.entertainers.each do |entertainer| %>
+        <% @host.entertainers.uniq.each do |entertainer| %>
           <li><%= link_to entertainer.username, entertainer_path(entertainer) %></li>
         <% end %>
       </ul>
@@ -29,7 +29,7 @@
 
   <div class="row justify-content-center">
       <% if @host.try(:id) == session[:host_id] %>
-        <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @host.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger"%></p>
+        <!-- <p><%= link_to 'Delete my profile',url_for(action: :destroy, id: @host.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger"%></p> -->
       <% else %>
         <p><%= link_to 'Message', new_message_path, class: "btn btn-primary" %></p>
       <% end %>
