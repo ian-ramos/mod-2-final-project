@@ -1,33 +1,4 @@
 
-<!--
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-    body {
-      background: url('party.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
-    </style>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-<div class="container">
-  <h1>Welcome</h1>
-  <div style="width: 5%; margin: 0 auto;">
-  <%= link_to "Log in", login_path, class: 'btn btn-primary' %><br><br><br><br>
-  </div>
-  <div style="width: 60%; margin: 0 auto;">
-  <%= link_to "Entertainer Signup", entertainer_signup_path, class: 'btn btn-primary float-left' %><%= link_to "Host Signup", host_signup_path, class: 'btn btn-primary float-right' %>
-  </div>
-</div>
-  </body>
-</html>
-<div> -->
 
 
 <!DOCTYPE html>
@@ -35,18 +6,23 @@
 <head>
   <style>
 
+  h3 {font-size: 20px;}
+
+p {font-size: 16px;}
+
   .center {
     margin-left: auto ;
     margin-right: auto ;
   }
 
   .bg-1 {
-       background-image: url(balloons.jpg); /* Green */
-       background-size: cover;
+        background-image: url(carnival.png);
         color: #ffffff;
     }
   .bg-2 {
-      background-color: #474e5d; /* Dark Blue */
+      /*background-image: url(carnival.png); Dark Blue*/
+      background-image: url(balloons.jpg);
+      background-size: cover;
       color: #ffffff;
   }
   .bg-3 {
@@ -77,22 +53,74 @@
   }
   .margin {margin-bottom: 45px;}
 
-
+  .btn-big-red {
+  background-color: #C63702;
+  background-image:
+    linear-gradient(
+      167deg,
+      rgba(white, 0.1) 50%,
+      rgba(black, 0) 55%),
+    linear-gradient(
+      top,
+      rgba(white, 0.15),
+      rgba(black, 0));
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px #C63702 inset,
+    0 0 0 2px rgba(white, 0.15) inset,
+    0 8px 0 0 #AD3002,
+    0 8px 0 1px rgba(black, 0.4),
+    0 8px 8px 1px rgba(black, 0.5);
+  color: #FFF;
+  display: inline-block;
+  font-family: "Lucida Grande", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  height: 91px;
+  letter-spacing: -1px;
+  line-height: 91px;
+  margin: 30px 0 10px;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(black, 0.5);
+  text-decoration: none !important;
+  top: 0;
+  width: 246px;
+  @include transition(0.15s);
+  &:hover, &:focus {
+    background-color: #D13902;
+    box-shadow:
+      0 0 0 1px #C63702 inset,
+      0 0 0 2px rgba(white, 0.15) inset,
+      0 10px 0 0 #AD3002,
+      0 10px 0 1px rgba(black, 0.4),
+      0 10px 8px 1px rgba(black, 0.6);
+      top: -2px;
+  }
+  &:active {
+    box-shadow:
+      0 0 0 1px #AD3002 inset,
+      0 0 0 2px rgba(white, 0.15) inset,
+      0 0 0 1px rgba(black, 0.4);
+    @include transform(translateY(10px));
+  }
+}
 
 
   </style>
-  <title>Bootstrap Theme Simply Me</title>
+  <title>Clownslist</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" style="margin-bottom: 0;">
     <div class="container">
-      <div class="navbar-header">
-        <img src="balloon.png" class="navbar-brand" height="150" style="display:inline">
+      <div class="navbar">
+        <img src="balloon.png" class="navbar-brand" height="150" style="display:inline; padding:0;">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -102,34 +130,48 @@
       <div class="row" id="myNavbar">
         <ul class="nav navbar-right">
           <li><a href="#about">ABOUT</a></li>
+          <li><a href="#signup">SIGNUP</a></li>
           <li><a href="#testimonials">TESTIMONIALS</a></li>
           <li><a href="/login">LOGIN</a></li>
         </ul>
       </div>
     </div>
   </nav>
-<div class="container-fluid bg-1 text-center">
-<h3 class="margin">Who Am I?</h3>
-<img src="party.jpg" alt="Bird" class=" img-responsive img-circle" height="150" width="200" style="display:inline">
-<div style="width: 20%" class="center"><a href="" class="btn btn-info btn-lg btn-block btn-huge">Center -> out</a></div>
-</div>
 <div id="about" class="container-fluid bg-2 text-center">
-  <h3 class="margin">Who Are We?</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <a href="#" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-user"></span>   Sign Up</a>
+<img src="logo2.png" class="img-responsive" height="350" width="350" style="display:inline"><br><br><br><br><br>
+<div class="center" style="width: 50%; background-color: #FFFFFF; border-radius: 25px;">
+  <h1 class="margin" style="color: black;">What is Clownslist?</h1>
+  <p style="color: black;">Clownslist is a brand new party planning platform!</p>
+</div>
+</div>
+<div id="signup" class="container-fluid bg-1 text-center">
+  <h1 style="color:#C63702" class="margin">Join For Free!</h1>
+  <div class="row">
+  <div class="col-sm-4">
+  <div style="width: 50%; padding-top: 130px;" class="center"><a href="/host_signup" class="btn-big-red">Host</a></div>
+  </div>
+  <div class="col-sm-4">
+  <img src="clown.png" class="img-responsive margin center" style="width:70%">
+  </div>
+  <div class="col-sm-4">
+  <div style="width: 50%; padding-top: 130px;" class="center"><a href="entertainer_signup" class="btn-big-red">Entertainer</a></div>
+  </div>
+</div>
 </div>
 <div id="testimonials" class="container-fluid bg-3 text-center">
-  <h3 style="color:white" class="margin">Testimonials</h3>
+  <h1 style="color:white" class="margin">Testimonials</h1><br>
   <div class="row">
     <div class="col-sm-4">
-      <img src="ryan.jpg" class="img-responsive margin" style="width:100%">
-      <p style="color:white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <img src="ryan.jpg" class="img-circle img-responsive margin center" style="width:50%">
+      <p style="color:white">"I used Clownslist for my son's birthday party and they sent a drunk. Our clown puked everywhere mid performance, passed out and crushed a guest on his way down. Broke the poor kid's arm. Have you ever heard 45 toddlers cry all at once? It was a disaster. I give Clownslist 5 ★'s"<br>-Ryan, single dad</p>
     </div>
     <div class="col-sm-4">
-      <p style="color:white">Lorem ipsum..</p>
+      <img src="jon.jpeg" class="img-circle img-responsive margin center" style="width:50%">
+      <p style="color:white">"This is by far the most useful website ever created by human hands. I weep with gratitude for the immense utility delivered by these intrepid, brilliant creators."<br>-Jon, HTML/CSS Deputy</p>
     </div>
     <div class="col-sm-4">
-      <p style="color:white">Lorem ipsum..</p>
+      <img src="ian.png" class="img-circle img-responsive margin center" style="width:50%">
+      <p style="color:white">"This is the world's greatest site.  Move over Craigslist."<br>-Ian, Clownslist lead dev</p>
     </div>
   </div>
   </div>
