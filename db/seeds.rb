@@ -7,6 +7,8 @@ Entertainer.create(username: "SlaveLeia", job_type: "Belly Dancer", image: 'http
 Entertainer.create(username: "christinap", job_type: "Mime", image: 'http://cf.ltkcdn.net/makeup/images/std/216283-675x450-Portrait-of-a-woman-mime.jpg', rate: '25', description: '...', password: "password")
 Entertainer.create(username: "danielleb", job_type: "Caricature Artist", image: 'http://jkexpressions.com/wp-content/themes/JKExpressions/imgs/julia.png', rate: '25', description: 'award winning caricaturist and artist.', password: "password")
 Entertainer.create(username: "davesquires", job_type: "Human Statue", image: 'http://i.dailymail.co.uk/i/pix/2014/12/10/23EA9C0500000578-0-image-a-11_1418251188483.jpg', rate: '35', description: '...', password: "password")
+Entertainer.create(username: "nigelthornberry", job_type: "Clown", image: 'https://vignette3.wikia.nocookie.net/p__/images/e/e9/P435859342-3.jpg/revision/latest?cb=20140529235856&path-prefix=protagonist', rate: '10', description: 'SMASHING', password: "password")
+Entertainer.create(username: "charliechaplin", job_type: "Mime", image: 'https://i.pinimg.com/736x/e3/6b/43/e36b4370c87533b77af7b0db9df49f7c--michael-jackson-wallpaper-michael-jackson-images.jpg', rate: '120', description: '...', password: "password")
 Host.create(username: "spiderman", password: "password", image: 'https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png')
 Host.create(username: "green-goblin", password: "password", image: 'https://upload.wikimedia.org/wikipedia/en/f/fe/Green_Goblin.png')
 Host.create(username: "venom", password: "password", image: 'http://vignette2.wikia.nocookie.net/marveldatabase/images/7/76/Lee_Price_%28Earth-616%29_from_Venom_Vol_3_1_003.png/revision/latest?cb=20161123180005')
