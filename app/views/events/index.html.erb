@@ -2,10 +2,12 @@
 
   <!-- heading -->
   <div class="row justify-content-center">
-    <h1>Events</h1>
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "alert alert-danger flash #{key}" %>
     <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <h1>Events</h1>
   </div>
 
   <div class="big-top-buffer"></div>
