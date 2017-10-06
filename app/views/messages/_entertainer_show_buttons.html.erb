@@ -1,0 +1,12 @@
+<div class="row">
+<% if @message.receiver == (Entertainer.find(session[:entertainer_id])).username %>
+  <div style="margin-right: 20px"> <!-- this div will separate buttons -->
+    <%= form_tag "/reply/#{@message.id}", method: :get do %>
+      <%= submit_tag 'Reply', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
+<%= form_for @message, method: :delete do |f| %>
+  <%= f.submit 'Delete', class: "btn btn-danger" %>
+<% end %>
+</div>

@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    host_or_entertainer
   end
 
   def new
