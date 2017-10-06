@@ -229,10 +229,6 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
-  compass-rails!
-=======
->>>>>>> d9b9d593569cb1426b2ddcdcef9f53297e08d666
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.7)
