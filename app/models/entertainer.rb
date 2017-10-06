@@ -10,7 +10,7 @@ class Entertainer < ApplicationRecord
 
   attr_reader :event_ids
 
-  @@job_types = ["Musician", "Clown", "Magician", "Belly Dancer", "Animal Tamer"]
+  @@job_types = ["Musician", "Clown", "Magician", "Belly Dancer", "Animal Tamer", "Mime", "Human Statue", "Caricature Artist"]
 
   def self.job_types
     @@job_types

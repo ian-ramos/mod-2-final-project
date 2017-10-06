@@ -32,7 +32,7 @@
 
   <!-- table of events -->
   <div class="row justify-content-center">
-    <% if @entertainer %>
+    <% if @entertainer && @events.size > 0 %>
         <%= form_for @entertainer, url: {action: "update_events", controller: "entertainers"} do |f| %>
         <table class="table">
           <thead class="thead-default"><tr>
@@ -60,10 +60,11 @@
         <div class="row justify-content-center"> <!-- center submit button -->
           <%= f.submit 'Choose These Events', class: 'btn btn-primary' %>
         </div>
+        <div class="big-top-buffer"></div>
       <% end %> <!-- ends form -->
     <% end %> <!-- ends if -->
 
-    <% if @host %>
+    <% if @host && @events.size > 0 %>
       <table class="table">
         <thead class="thead-default"><tr>
           <th>Name</th>

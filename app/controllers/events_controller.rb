@@ -55,7 +55,7 @@ class EventsController < ApplicationController
     if @events.size > 0
       render :index
     else
-      flash.now[:danger] = "No events found!"
+      flash.now[:danger] = "No events found! Please search again."
       render :index
     end
   end

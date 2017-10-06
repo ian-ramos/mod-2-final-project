@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post '/filter', to: 'entertainers#filter'
   get '/reply/:id', to: 'messages#reply'
   get '/events/:id/bill', to: 'events#bill', as: 'event_invoice'
+  get '/search', to: 'events#index'
+  get '/filter', to: 'entertainers#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
