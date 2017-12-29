@@ -62,7 +62,7 @@ class HostsController < ApplicationController
   private
 
   def host_params
-    params.require(:host).permit(:username, :password, :password_confirmation, entertainer_ids: [])
+    params.require(:host).permit(:username, :password, :password_confirmation, :image, entertainer_ids: [])
   end
 
   def entertainer_usernames(host, usernames, event_id) #takes the entertainers from the event show page and updates entertainers list for that host's event
